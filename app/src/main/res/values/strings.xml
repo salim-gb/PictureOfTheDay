@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PictureOfTheDay</string>
+    <string name="photo_of_the_day_stub">Photo of the day</string>
+    <string name="settings">settings</string>
+    <string name="favorites">favorites</string>
+    <string name="wiki_search">Wiki</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="before_yesterday">Before Yesterday</string>
+    <string name="title_of_the_picture">Title Of The Picture</string>
+    <string name="another">Another</string>
+
 </resources>
