@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -11,7 +12,11 @@ import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.HomeFragmentBinding
 import com.example.pictureoftheday.repository.PictureOfTheDayResponseData
 import com.example.pictureoftheday.util.AppState
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
@@ -22,6 +27,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
     }
+
+    private val constraintsBuilder =
+        CalendarConstraints.Builder()
+            .setValidator(DateValidatorPointBackward.now())
+
+    private val datePicker = MaterialDatePicker.Builder.datePicker()
+        .setTitleText("Select Date")
+        .setCalendarConstraints(constraintsBuilder.build())
+        .build()
 
     private val c = Calendar.getInstance()
     private val year = c.get(Calendar.YEAR)
@@ -43,6 +57,22 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         }
 
         viewModel.sendServerRequest(today)
+
+        binding.homeToolBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.selectDate -> {
+                    datePicker.show(parentFragmentManager, "date picker")
+                    true
+                }
+                else -> false
+            }
+        }
+
+        datePicker.addOnPositiveButtonClickListener {
+            val dateSelected = datePicker.selection
+            Toast.makeText(context, getCurrentDate(dateSelected), Toast.LENGTH_SHORT).show()
+            viewModel.sendServerRequest(getCurrentDate(dateSelected))
+        }
 
         // Handle click selected chip from chipGroup
         binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -96,11 +126,17 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private fun showDetails(pictureOfTheDay: PictureOfTheDayResponseData) {
         binding.title.text = pictureOfTheDay.title
+        binding.date.text = pictureOfTheDay.date
         binding.customImageView.load(pictureOfTheDay.url) {
             crossfade(true)
         }
         binding.description.text = pictureOfTheDay.explanation
         binding.copyRight.text = pictureOfTheDay.copyright
+    }
+
+    private fun getCurrentDate(date: Long?): String {
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+        return sdf.format(date)
     }
 
     override fun onDestroyView() {

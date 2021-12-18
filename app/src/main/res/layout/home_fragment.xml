@@ -14,6 +14,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/homeToolBar"
             android:layout_width="match_parent"
+            app:menu="@menu/home_fragment_app_bar_menu"
             android:layout_height="?attr/actionBarSize">
 
             <com.google.android.material.chip.ChipGroup
@@ -67,7 +68,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_normal"
+                android:layout_margin="@dimen/margin_small"
                 android:hint="@string/wiki_search"
                 app:counterEnabled="true"
                 app:counterMaxLength="20"
@@ -84,9 +85,17 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_normal"
+                android:layout_margin="@dimen/margin_small"
                 tools:text="@string/title_of_the_picture"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                tools:text="@string/date_of_the_picture"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
 
             <com.example.pictureoftheday.widget.CustomImageView
                 android:id="@+id/customImageView"
