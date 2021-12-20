@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_normal">8dp</dimen>
-    <dimen name="margin_medium">24dp</dimen>
+
+    <dimen name="dimen_tiny_2">2dp</dimen>
+    <dimen name="dimen_tiny_4">4dp</dimen>
+    <dimen name="dimen_small_8">8dp</dimen>
+    <dimen name="dimen_small_12">12dp</dimen>
+    <dimen name="dimen_medium_16">16dp</dimen>
+    <dimen name="dimen_large_32">32dp</dimen>
+    <dimen name="dimen_huge_60">60dp</dimen>
+    <dimen name="progress_bar_height_40">40dp</dimen>
+
 </resources>

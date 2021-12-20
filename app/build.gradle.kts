@@ -61,4 +61,7 @@ dependencies {
     implementation(Libs.RETROFIT_CONVERTOR_GSON)
     implementation(Libs.OKHTTP_LOGGING_INTERCEPTOR)
     implementation(Libs.COIL)
+    implementation(Libs.TIMBER)
+    implementation(Libs.LOGGER)
+    implementation(Libs.PREFERENCE)
 }

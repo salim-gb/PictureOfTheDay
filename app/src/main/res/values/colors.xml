@@ -7,9 +7,32 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="red">#E91E63</color>
     <color name="primaryColor">#2196f3</color>
     <color name="primaryLightColor">#6ec6ff</color>
     <color name="primaryDarkColor">#0069c0</color>
     <color name="primaryTextColor">#000000</color>
+    <color name="gray_900">#212121</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_500">#9e9e9e</color>
+    <color name="gray_400">#bdbdbd</color>
+    <color name="gray_200">#e0e0e0</color>
+    <color name="yellow">#FFC107</color>
+    <color name="yellow_700">#fbc02d</color>
+    <color name="yellow_900">#c49000</color>
+    <color name="orange_600">#fb8c00</color>
+    <color name="blue">#2196F3</color>
+    <color name="light_blue_100">#b3e5fc</color>
+    <color name="light_blue_200">#81d4fa</color>
+    <color name="blue_200">#82b3c9</color>
+    <color name="blue_gray_200">#546e7a</color>
+    <color name="blue_gray_600">#b0bec5</color>
+    <color name="deep_purple_100a">#b388ff</color>
+    <color name="deep_purple_200a">#7c4dff</color>
+    <color name="black_900">#111111</color>
+    <color name="colorPrimaryOrange">#f57c00</color>
+    <color name="colorSecondaryOrange">#e0e0e0</color>
+    <color name="colorSurfaceOrange">#FFBE7C</color>
 </resources>
