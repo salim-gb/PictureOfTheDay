@@ -6,10 +6,13 @@ plugins {
 val appcompat = "1.4.0"
 val core = "1.7.0"
 val constraintLayout = "2.1.2"
-val material = "1.5.0-rc01"
+val material = "1.6.0-alpha01"
 val retrofit = "2.9.0"
 val okhttp = "4.9.3"
 val coil = "1.4.0"
+val timber = "5.0.1"
+val preference = "1.1.1"
+val logger = "2.2.0"
 
 dependencies {
     constraints {
@@ -23,5 +26,8 @@ dependencies {
         api("${Libs.RETROFIT_CONVERTOR_GSON}:$retrofit")
         api("${Libs.OKHTTP_LOGGING_INTERCEPTOR}:$okhttp")
         api("${Libs.COIL}:$coil")
+        api("${Libs.TIMBER}:$timber")
+        api("${Libs.LOGGER}:$logger")
+        api("${Libs.PREFERENCE}:$preference")
     }
 }

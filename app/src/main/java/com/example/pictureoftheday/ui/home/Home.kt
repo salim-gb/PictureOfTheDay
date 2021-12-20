@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -16,10 +15,11 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HomeFragment : Fragment(R.layout.home_fragment) {
+class Home : Fragment(R.layout.home_fragment) {
 
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
@@ -32,7 +32,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         CalendarConstraints.Builder()
             .setValidator(DateValidatorPointBackward.now())
 
-    private val datePicker = MaterialDatePicker.Builder.datePicker()
+    private var datePicker = MaterialDatePicker.Builder.datePicker()
         .setTitleText("Select Date")
         .setCalendarConstraints(constraintsBuilder.build())
         .build()
@@ -45,8 +45,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private val today = "$year-${month + 1}-$day"
     private val yesterday = "$year-${month + 1}-${day - 1}"
     private val beforeYesterday = "$year-${month + 1}-${day - 2}"
-
-    private var lastCheckedId = View.NO_ID
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,22 +68,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
         datePicker.addOnPositiveButtonClickListener {
             val dateSelected = datePicker.selection
-            Toast.makeText(context, getCurrentDate(dateSelected), Toast.LENGTH_SHORT).show()
+            Timber.d("positive button date picker: ${getCurrentDate(dateSelected)}")
             viewModel.sendServerRequest(getCurrentDate(dateSelected))
+            binding.chipGroup.clearCheck()
         }
 
         // Handle click selected chip from chipGroup
         binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
 
-            // user can't uncheck the chip
-            if (checkedId == View.NO_ID) {
-                group.check(lastCheckedId)
-                return@setOnCheckedChangeListener
-            }
-
-            lastCheckedId = checkedId
-
-            when (lastCheckedId) {
+            when (checkedId) {
                 R.id.chipToday -> {
                     viewModel.sendServerRequest(today)
                 }
@@ -110,15 +101,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Error -> {
-                binding.homeFragmentLoading.visibility = View.GONE
+                binding.progressBar.visibility = View.GONE
                 Snackbar.make(requireView(), "${appState.error.message}", Snackbar.LENGTH_SHORT)
                     .show()
             }
             AppState.Loading -> {
-                binding.homeFragmentLoading.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.VISIBLE
             }
             is AppState.Success -> {
-                binding.homeFragmentLoading.visibility = View.GONE
+                binding.progressBar.visibility = View.GONE
                 showDetails(appState.pictureOfTheDayResponseData)
             }
         }
@@ -145,6 +136,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     companion object {
-        fun newInstance() = HomeFragment()
+        fun newInstance() = Home()
     }
 }

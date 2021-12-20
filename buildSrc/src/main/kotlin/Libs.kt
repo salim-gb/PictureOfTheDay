@@ -10,4 +10,8 @@ object Libs {
     const val RETROFIT_CONVERTOR_GSON = "com.squareup.retrofit2:converter-gson"
     const val OKHTTP_LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor"
     const val COIL = "io.coil-kt:coil"
+    const val TIMBER = "com.jakewharton.timber:timber"
+    const val LOGGER = "com.orhanobut:logger:2.2.0"
+    const val PREFERENCE = "androidx.preference:preference"
+
 }

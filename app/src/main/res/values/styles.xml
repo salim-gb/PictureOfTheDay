@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Widget.PictureOfTheDay.AppBar" parent="@style/Widget.Design.AppBarLayout">
-        <item name="android:background">?attr/colorSurface</item>
-        <item name="android:elevation">8dp</item>
+    <!--BottomNavigation-->
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="android:minHeight">@dimen/dimen_huge_60</item>
+        <item name="itemPaddingTop">@dimen/dimen_small_8</item>
+        <item name="itemPaddingBottom">@dimen/dimen_small_12</item>
+    </style>
+    <!--Overlay Black Theme BottomNavigation-->
+    <style name="Widget.App.BottomNavigationView.Black" parent="Widget.App.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorSurface">@color/deep_purple_100a</item>
+        <item name="colorOnSurfaceVariant">@color/black</item>
+    </style>
+
+    <!--Chip Base-->
+    <style name="Widget.App.Chip.Base" parent="Widget.Material3.Chip.Filter">
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipStartPadding">@dimen/dimen_tiny_2</item>
+        <item name="chipEndPadding">@dimen/dimen_tiny_2</item>
+    </style>
+    <!--Chip Main Theme-->
+    <style name="Widget.App.Chip.Main" parent="Widget.App.Chip.Base">
+        <item name="chipBackgroundColor">@color/chip_background_tint_blue</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Main</item>
+    </style>
+    <style name="ThemeOverlay.App.Chip.Main" parent="">
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSecondaryContainer">@color/gray_700</item>
+        <item name="colorOnSurfaceVariant">@color/white</item>
+    </style>
+    <!--Chip Yellow Theme-->
+    <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip.Base">
+        <item name="chipBackgroundColor">@color/chip_background_tint_gray</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Yellow</item>
+    </style>
+    <style name="ThemeOverlay.App.Chip.Yellow" parent="">
+        <item name="colorOnSurface">@color/gray_800</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/gray_200</item>
+    </style>
+    <!--Chip Black Theme-->
+    <style name="Widget.App.Chip.Black" parent="Widget.App.Chip.Base">
+        <item name="chipBackgroundColor">@color/chip_background_tint_purple</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Black</item>
+    </style>
+    <style name="ThemeOverlay.App.Chip.Black" parent="">
+        <item name="colorOnSurface">@color/deep_purple_100a</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/gray_200</item>
+    </style>
+
+    <!-- Activity fade in animation -->
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 </resources>
