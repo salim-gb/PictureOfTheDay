@@ -1,10 +1,31 @@
 package com.example.pictureoftheday.repository
 
+import com.example.pictureoftheday.BuildConfig
+import com.example.pictureoftheday.api.RetrofitInstance
+import com.example.pictureoftheday.model.EarthResponseData
+import com.example.pictureoftheday.model.MarsResponseData
+import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import retrofit2.Callback
 
-class RepositoryImpl(private val remoteDataSource: RemoteDataSource) :
-    Repository {
-    override fun getDataFromServer(date: String, callback: Callback<PictureOfTheDayResponseData>) {
-        remoteDataSource.getPictureOfTheDay(date, callback)
+class RepositoryImpl : Repository {
+
+    override fun getPictureOfTheDayFromServer(
+        date: String,
+        callback: Callback<PictureOfTheDayResponseData>
+    ) {
+        RetrofitInstance.pictureOfTheDayApi.getPictureOfTheDayRequest(
+            date,
+            BuildConfig.NASA_API_KEY
+        ).enqueue(callback)
+    }
+
+    override fun getEarthDataFromServer(date: String, callback: Callback<EarthResponseData>) {
+        RetrofitInstance.earthApi.getEarthPicture(date, dim = 0.10f, BuildConfig.NASA_API_KEY)
+            .enqueue(callback)
+    }
+
+    override fun getMarsDataFromServer(date: String, callback: Callback<MarsResponseData>) {
+        RetrofitInstance.marsApi.getMarsPicture(date, dim = 0.10f, BuildConfig.NASA_API_KEY)
+            .enqueue(callback)
     }
 }

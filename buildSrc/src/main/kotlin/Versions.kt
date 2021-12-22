@@ -10,4 +10,5 @@ object Versions {
     const val ANDROID_GRADLE_PLUGIN = "7.0.4"
     const val KOTLIN = "1.6.10"
     const val NAVIGATION = "2.4.0-rc01"
+    const val SECRETS = "2.0.0"
 }

@@ -16,25 +16,25 @@
         <item name="colorOnSurfaceVariant">@color/black</item>
     </style>
 
-    <!--Chip Base-->
-    <style name="Widget.App.Chip.Base" parent="Widget.Material3.Chip.Filter">
+    <!--Chip Group Home Base-->
+    <style name="Widget.App.Chip.Home.Base" parent="Widget.Material3.Chip.Filter">
         <item name="chipStrokeWidth">0dp</item>
-        <item name="checkedIconVisible">false</item>
+        <item name="checkedIconVisible">true</item>
         <item name="chipStartPadding">@dimen/dimen_tiny_2</item>
         <item name="chipEndPadding">@dimen/dimen_tiny_2</item>
     </style>
     <!--Chip Main Theme-->
-    <style name="Widget.App.Chip.Main" parent="Widget.App.Chip.Base">
+    <style name="Widget.App.Chip.Main" parent="Widget.App.Chip.Home.Base">
         <item name="chipBackgroundColor">@color/chip_background_tint_blue</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Main</item>
     </style>
     <style name="ThemeOverlay.App.Chip.Main" parent="">
-        <item name="colorOnSurface">@color/white</item>
-        <item name="colorOnSecondaryContainer">@color/gray_700</item>
-        <item name="colorOnSurfaceVariant">@color/white</item>
+        <item name="colorOnSurface">@color/blue_gray_200</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/gray_700</item>
     </style>
     <!--Chip Yellow Theme-->
-    <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip.Base">
+    <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip.Home.Base">
         <item name="chipBackgroundColor">@color/chip_background_tint_gray</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Yellow</item>
     </style>
@@ -44,7 +44,7 @@
         <item name="colorOnSurfaceVariant">@color/gray_200</item>
     </style>
     <!--Chip Black Theme-->
-    <style name="Widget.App.Chip.Black" parent="Widget.App.Chip.Base">
+    <style name="Widget.App.Chip.Black" parent="Widget.App.Chip.Home.Base">
         <item name="chipBackgroundColor">@color/chip_background_tint_purple</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Black</item>
     </style>
@@ -52,6 +52,12 @@
         <item name="colorOnSurface">@color/deep_purple_100a</item>
         <item name="colorOnSecondaryContainer">@color/white</item>
         <item name="colorOnSurfaceVariant">@color/gray_200</item>
+    </style>
+    <style name="Widget.App.Chip.Resolution" parent="">
+        <item name="checkedIconVisible">true</item>
+        <item name="chipCornerRadius">0dp</item>
+        <item name="chipEndPadding">10dp</item>
+        <item name="chipStartPadding">10dp</item>
     </style>
 
     <!-- Activity fade in animation -->

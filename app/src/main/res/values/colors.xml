@@ -32,7 +32,5 @@
     <color name="deep_purple_100a">#b388ff</color>
     <color name="deep_purple_200a">#7c4dff</color>
     <color name="black_900">#111111</color>
-    <color name="colorPrimaryOrange">#f57c00</color>
-    <color name="colorSecondaryOrange">#e0e0e0</color>
-    <color name="colorSurfaceOrange">#FFBE7C</color>
+    <color name="black_transparent_64">#A4000000</color>
 </resources>

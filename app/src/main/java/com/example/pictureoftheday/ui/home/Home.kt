@@ -5,24 +5,28 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import coil.load
+import coil.imageLoader
+import coil.request.Disposable
+import coil.request.ImageRequest
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.HomeFragmentBinding
-import com.example.pictureoftheday.repository.PictureOfTheDayResponseData
+import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import com.example.pictureoftheday.util.AppState
+import com.example.pictureoftheday.util.DateHelperImpl
+import com.example.pictureoftheday.widget.CustomImageView
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
-import timber.log.Timber
-import java.text.SimpleDateFormat
-import java.util.*
 
 class Home : Fragment(R.layout.home_fragment) {
 
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
+
+    private val dateHelperImpl = DateHelperImpl()
 
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -37,24 +41,32 @@ class Home : Fragment(R.layout.home_fragment) {
         .setCalendarConstraints(constraintsBuilder.build())
         .build()
 
-    private val c = Calendar.getInstance()
-    private val year = c.get(Calendar.YEAR)
-    private val month = c.get(Calendar.MONTH)
-    private val day = c.get(Calendar.DAY_OF_MONTH)
-
-    private val today = "$year-${month + 1}-$day"
-    private val yesterday = "$year-${month + 1}-${day - 1}"
-    private val beforeYesterday = "$year-${month + 1}-${day - 2}"
+    private var disposable: Disposable? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = HomeFragmentBinding.bind(view)
 
-        viewModel.getData().observe(viewLifecycleOwner) {
+        val observer = Observer<AppState> {
             renderData(it)
         }
 
-        viewModel.sendServerRequest(today)
+        viewModel.getData().observe(this, observer)
+
+        when (viewModel.selectedDate.value) {
+            dateHelperImpl.today -> {
+                binding.chipGroup.check(R.id.chipToday)
+            }
+            dateHelperImpl.yesterday -> {
+                binding.chipGroup.check(R.id.chipYesterday)
+            }
+            dateHelperImpl.beforeYesterday -> {
+                binding.chipGroup.check(R.id.chipBeforeYesterday)
+            }
+            else -> {
+                binding.chipGroup.clearCheck()
+            }
+        }
 
         binding.homeToolBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
@@ -67,24 +79,40 @@ class Home : Fragment(R.layout.home_fragment) {
         }
 
         datePicker.addOnPositiveButtonClickListener {
-            val dateSelected = datePicker.selection
-            Timber.d("positive button date picker: ${getCurrentDate(dateSelected)}")
-            viewModel.sendServerRequest(getCurrentDate(dateSelected))
+            dateHelperImpl.getFormatDate(it).also { formatDate ->
+                onDateChange(formatDate)
+            }
             binding.chipGroup.clearCheck()
         }
 
         // Handle click selected chip from chipGroup
-        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+        binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
 
             when (checkedId) {
                 R.id.chipToday -> {
-                    viewModel.sendServerRequest(today)
+                    onDateChange(dateHelperImpl.today)
                 }
                 R.id.chipYesterday -> {
-                    viewModel.sendServerRequest(yesterday)
+                    onDateChange(dateHelperImpl.yesterday)
                 }
                 R.id.chipBeforeYesterday -> {
-                    viewModel.sendServerRequest(beforeYesterday)
+                    onDateChange(dateHelperImpl.beforeYesterday)
+                }
+            }
+        }
+
+        binding.chipHdRes.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.liveData.value?.let {
+                if (it is AppState.Success) {
+                    if (it.data is PictureOfTheDayResponseData) {
+                        loadWithCoil(
+                            binding.customImageView,
+                            when (isChecked) {
+                                true -> it.data.hdurl
+                                false -> it.data.url
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -101,33 +129,68 @@ class Home : Fragment(R.layout.home_fragment) {
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Error -> {
-                binding.progressBar.visibility = View.GONE
+                binding.loadingProgressBar.visibility = View.GONE
                 Snackbar.make(requireView(), "${appState.error.message}", Snackbar.LENGTH_SHORT)
                     .show()
             }
             AppState.Loading -> {
-                binding.progressBar.visibility = View.VISIBLE
+                binding.loadingProgressBar.visibility = View.VISIBLE
             }
             is AppState.Success -> {
-                binding.progressBar.visibility = View.GONE
-                showDetails(appState.pictureOfTheDayResponseData)
+                binding.loadingProgressBar.visibility = View.GONE
+                if (appState.data is PictureOfTheDayResponseData) {
+                    showDetails(appState.data)
+                }
             }
         }
     }
 
-    private fun showDetails(pictureOfTheDay: PictureOfTheDayResponseData) {
-        binding.title.text = pictureOfTheDay.title
-        binding.date.text = pictureOfTheDay.date
-        binding.customImageView.load(pictureOfTheDay.url) {
-            crossfade(true)
+    private fun showDetails(data: PictureOfTheDayResponseData) {
+
+        with(binding) {
+
+            title.text = data.title
+            date.text = data.date
+
+            loadWithCoil(
+                customImageView,
+                when (chipHdRes.isChecked) {
+                    true -> data.hdurl
+                    false -> data.url
+                }
+            )
+
+            description.text = data.explanation
+            copyRight.text = data.copyright
         }
-        binding.description.text = pictureOfTheDay.explanation
-        binding.copyRight.text = pictureOfTheDay.copyright
     }
 
-    private fun getCurrentDate(date: Long?): String {
-        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-        return sdf.format(date)
+    private fun loadWithCoil(imageView: CustomImageView, url: String?) {
+
+        disposable?.dispose()
+
+        val request = ImageRequest.Builder(imageView.context)
+            .data(url)
+            .placeholder(R.drawable.ic_baseline_image_24)
+            .crossfade(true)
+            .crossfade(1000)
+            .target(
+                onStart = {
+                    binding.loadingProgressBar.visibility = View.VISIBLE
+                    binding.blurView.visibility = View.VISIBLE
+                },
+                onSuccess = {
+                    imageView.setImageDrawable(it)
+                    binding.loadingProgressBar.visibility = View.GONE
+                    binding.blurView.visibility = View.GONE
+                }
+            ).build()
+
+        disposable = imageView.context.imageLoader.enqueue(request)
+    }
+
+    private fun onDateChange(date: String) {
+        viewModel.onDateChange(date)
     }
 
     override fun onDestroyView() {

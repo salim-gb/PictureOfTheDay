@@ -1,14 +1,10 @@
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+pluginManagement{
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
+        gradlePluginPortal()
     }
 }
 rootProject.name = "PictureOfTheDay"
-include(
-    ":app",
-    "depconstraints"
-)
+include(":app")
+include("depconstraints")
