@@ -28,4 +28,5 @@
     <string name="landing_date">Landing date: %1$s</string>
     <string name="launch_date">Launch date: %1$s</string>
     <string name="rover_status">Status: %1$s</string>
+    <string name="nasa_logo">Nasa Logo</string>
 </resources>

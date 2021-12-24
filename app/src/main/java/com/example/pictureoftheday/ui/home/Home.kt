@@ -63,15 +63,15 @@ class Home : Fragment(R.layout.home_fragment) {
             }
         }
 
-        binding.homeToolBar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.selectDate -> {
-                    datePicker.show(parentFragmentManager, "date picker")
-                    true
-                }
-                else -> false
-            }
-        }
+//        binding.homeToolBar.setOnMenuItemClickListener { menuItem ->
+//            when (menuItem.itemId) {
+//                R.id.selectDate -> {
+//                    datePicker.show(parentFragmentManager, "date picker")
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
 
         datePicker.addOnPositiveButtonClickListener {
             dateHelperImpl.getFormatDate(it).also { formatDate ->
