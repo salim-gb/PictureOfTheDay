@@ -4,6 +4,7 @@ import com.example.pictureoftheday.util.Constants.Companion.BASE_URL
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 object RetrofitInstance {
 

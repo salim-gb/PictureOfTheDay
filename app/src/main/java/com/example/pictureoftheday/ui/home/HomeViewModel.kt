@@ -7,13 +7,12 @@ import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import com.example.pictureoftheday.repository.Repository
 import com.example.pictureoftheday.repository.RepositoryImpl
 import com.example.pictureoftheday.util.AppState
+import com.example.pictureoftheday.util.Constants.Companion.REQUEST_ERROR
+import com.example.pictureoftheday.util.Constants.Companion.SERVER_ERROR
 import com.example.pictureoftheday.util.DateHelperImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
-private const val SERVER_ERROR = "Ошибка сервера"
-private const val REQUEST_ERROR = "Ошибка запроса на сервер"
 
 class HomeViewModel(
     private val _liveData: MutableLiveData<AppState> = MutableLiveData(),
@@ -65,9 +64,5 @@ class HomeViewModel(
     init {
         _selectedDate.value = dateHelperImpl.today
         sendServerRequest()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
     }
 }

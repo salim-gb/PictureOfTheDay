@@ -15,8 +15,8 @@ object CoilHelper {
     fun loadWithCoil(
         imageView: CustomImageView,
         url: String?,
-        progressBar: ProgressBar,
-        view: View
+        progressBar: ProgressBar? = null,
+        view: View? = null
     ) {
 
         disposable?.dispose()
@@ -28,13 +28,13 @@ object CoilHelper {
             .crossfade(1000)
             .target(
                 onStart = {
-                    progressBar.visibility = View.VISIBLE
-                    view.visibility = View.VISIBLE
+                    progressBar?.visibility = View.VISIBLE
+                    view?.visibility = View.VISIBLE
                 },
                 onSuccess = {
                     imageView.setImageDrawable(it)
-                    progressBar.visibility = View.GONE
-                    view.visibility = View.GONE
+                    progressBar?.visibility = View.GONE
+                    view?.visibility = View.GONE
                 }
             ).build()
 

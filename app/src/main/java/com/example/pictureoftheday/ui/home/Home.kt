@@ -7,15 +7,12 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import coil.imageLoader
-import coil.request.Disposable
-import coil.request.ImageRequest
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.HomeFragmentBinding
 import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import com.example.pictureoftheday.util.AppState
+import com.example.pictureoftheday.util.CoilHelper
 import com.example.pictureoftheday.util.DateHelperImpl
-import com.example.pictureoftheday.widget.CustomImageView
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -40,8 +37,6 @@ class Home : Fragment(R.layout.home_fragment) {
         .setTitleText("Select Date")
         .setCalendarConstraints(constraintsBuilder.build())
         .build()
-
-    private var disposable: Disposable? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -105,7 +100,7 @@ class Home : Fragment(R.layout.home_fragment) {
             viewModel.liveData.value?.let {
                 if (it is AppState.Success) {
                     if (it.data is PictureOfTheDayResponseData) {
-                        loadWithCoil(
+                        CoilHelper.loadWithCoil(
                             binding.customImageView,
                             when (isChecked) {
                                 true -> it.data.hdurl
@@ -152,7 +147,7 @@ class Home : Fragment(R.layout.home_fragment) {
             title.text = data.title
             date.text = data.date
 
-            loadWithCoil(
+            CoilHelper.loadWithCoil(
                 customImageView,
                 when (chipHdRes.isChecked) {
                     true -> data.hdurl
@@ -163,30 +158,6 @@ class Home : Fragment(R.layout.home_fragment) {
             description.text = data.explanation
             copyRight.text = data.copyright
         }
-    }
-
-    private fun loadWithCoil(imageView: CustomImageView, url: String?) {
-
-        disposable?.dispose()
-
-        val request = ImageRequest.Builder(imageView.context)
-            .data(url)
-            .placeholder(R.drawable.ic_baseline_image_24)
-            .crossfade(true)
-            .crossfade(1000)
-            .target(
-                onStart = {
-                    binding.loadingProgressBar.visibility = View.VISIBLE
-                    binding.blurView.visibility = View.VISIBLE
-                },
-                onSuccess = {
-                    imageView.setImageDrawable(it)
-                    binding.loadingProgressBar.visibility = View.GONE
-                    binding.blurView.visibility = View.GONE
-                }
-            ).build()
-
-        disposable = imageView.context.imageLoader.enqueue(request)
     }
 
     private fun onDateChange(date: String) {

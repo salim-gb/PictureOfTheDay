@@ -3,9 +3,9 @@
     <!--BottomNavigation-->
     <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
         <item name="labelVisibilityMode">unlabeled</item>
-        <item name="android:minHeight">@dimen/dimen_huge_60</item>
+        <item name="android:minHeight">@dimen/dimen_large_48</item>
         <item name="itemPaddingTop">@dimen/dimen_small_8</item>
-        <item name="itemPaddingBottom">@dimen/dimen_small_12</item>
+        <item name="itemPaddingBottom">@dimen/dimen_small_8</item>
     </style>
     <!--Overlay Black Theme BottomNavigation-->
     <style name="Widget.App.BottomNavigationView.Black" parent="Widget.App.BottomNavigationView">
@@ -16,15 +16,15 @@
         <item name="colorOnSurfaceVariant">@color/black</item>
     </style>
 
-    <!--Chip Group Home Base-->
-    <style name="Widget.App.Chip.Home.Base" parent="Widget.Material3.Chip.Filter">
+    <!--Chip Group Base-->
+    <style name="Widget.App.Chip.Base" parent="Widget.Material3.Chip.Filter">
         <item name="chipStrokeWidth">0dp</item>
         <item name="checkedIconVisible">true</item>
         <item name="chipStartPadding">@dimen/dimen_tiny_2</item>
         <item name="chipEndPadding">@dimen/dimen_tiny_2</item>
     </style>
     <!--Chip Main Theme-->
-    <style name="Widget.App.Chip.Main" parent="Widget.App.Chip.Home.Base">
+    <style name="Widget.App.Chip.Main" parent="Widget.App.Chip.Base">
         <item name="chipBackgroundColor">@color/chip_background_tint_blue</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Main</item>
     </style>
@@ -34,7 +34,7 @@
         <item name="colorOnSurfaceVariant">@color/gray_700</item>
     </style>
     <!--Chip Yellow Theme-->
-    <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip.Home.Base">
+    <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip.Base">
         <item name="chipBackgroundColor">@color/chip_background_tint_gray</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Yellow</item>
     </style>
@@ -44,20 +44,31 @@
         <item name="colorOnSurfaceVariant">@color/gray_200</item>
     </style>
     <!--Chip Black Theme-->
-    <style name="Widget.App.Chip.Black" parent="Widget.App.Chip.Home.Base">
+    <style name="Widget.App.Chip.Black" parent="Widget.App.Chip.Base">
         <item name="chipBackgroundColor">@color/chip_background_tint_purple</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Black</item>
     </style>
+
     <style name="ThemeOverlay.App.Chip.Black" parent="">
         <item name="colorOnSurface">@color/deep_purple_100a</item>
         <item name="colorOnSecondaryContainer">@color/white</item>
         <item name="colorOnSurfaceVariant">@color/gray_200</item>
     </style>
+    <!--chip home picture of the day hd resolution-->
     <style name="Widget.App.Chip.Resolution" parent="">
-        <item name="checkedIconVisible">true</item>
-        <item name="chipCornerRadius">0dp</item>
-        <item name="chipEndPadding">10dp</item>
-        <item name="chipStartPadding">10dp</item>
+        <item name="chipEndPadding">@dimen/dimen_small_8</item>
+        <item name="chipStartPadding">@dimen/dimen_small_8</item>
+    </style>
+
+    <!--Button icon only-->
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.Material3.Button">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_medium_16</item>
+        <item name="android:paddingRight">@dimen/dimen_medium_16</item>
+        <item name="android:minWidth">@dimen/dimen_large_32</item>
+        <item name="android:minHeight">@dimen/dimen_large_32</item>
     </style>
 
     <!-- Activity fade in animation -->
@@ -65,4 +76,6 @@
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
+
+    <dimen name="dimen_large_48">48dp</dimen>
 </resources>
