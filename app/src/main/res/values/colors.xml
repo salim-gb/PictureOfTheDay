@@ -33,4 +33,5 @@
     <color name="deep_purple_200a">#7c4dff</color>
     <color name="black_900">#111111</color>
     <color name="black_transparent_64">#A4000000</color>
+    <color name="black_transparent_80">#22000000</color>
 </resources>

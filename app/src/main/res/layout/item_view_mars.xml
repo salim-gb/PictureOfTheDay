@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/dimen_small_8"
+    app:cardCornerRadius="@dimen/dimen_small_8"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.pictureoftheday.widget.CustomImageView
+            android:id="@+id/marsPictureImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_small_8"
+            android:background="@color/black_transparent_80"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_small_8">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_tiny_2"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/white"
+                tools:text="sol: 2970" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cameraName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_tiny_2"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/white"
+                tools:text="camera: FHAZ" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/roverName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_tiny_2"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/white"
+                tools:text="rover: Curiosity" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/landingDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_tiny_2"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/white"
+                tools:text="landing date: 2012-08-06" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/launchDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_tiny_2"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/white"
+                tools:text="launch date: 2012-08-06" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_tiny_2"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/white"
+                tools:text="status: active" />
+
+        </LinearLayout>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

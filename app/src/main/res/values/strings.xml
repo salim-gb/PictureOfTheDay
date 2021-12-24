@@ -22,4 +22,10 @@
     <string name="meteorites">Meteorites</string>
     <string name="space">Space</string>
     <string name="no_picture_message">There is no picture for this date. Please choose another date.</string>
+    <string name="sol">Sol: %1$s</string>
+    <string name="camera_name">Camera: %1$s</string>
+    <string name="rover_name">Rover: %1$s</string>
+    <string name="landing_date">Landing date: %1$s</string>
+    <string name="launch_date">Launch date: %1$s</string>
+    <string name="rover_status">Status: %1$s</string>
 </resources>

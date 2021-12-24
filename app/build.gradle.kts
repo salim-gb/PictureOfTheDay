@@ -62,4 +62,5 @@ dependencies {
     implementation(Libs.LIVE_DATA)
     implementation(Libs.LIVE_DATA_KAPT)
     implementation(Libs.VIEW_PAGER)
+    implementation(Libs.RECYCLER_VIEW)
 }

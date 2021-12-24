@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:titleCentered="true"
-            app:title="@string/space" />
+            app:title="@string/space"
+            app:titleCentered="true" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/spaceTabLayout"
@@ -26,22 +26,10 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/spacePager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="match_parent"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/spacePager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

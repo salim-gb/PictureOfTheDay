@@ -1,7 +1,7 @@
 package com.example.pictureoftheday.repository
 
 import com.example.pictureoftheday.model.EarthResponseData
-import com.example.pictureoftheday.model.MarsResponseData
+import com.example.pictureoftheday.model.MarsPictureData
 import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import retrofit2.Callback
 
@@ -18,6 +18,6 @@ interface Repository {
 
     fun getMarsDataFromServer(
         date: String,
-        callback: Callback<MarsResponseData>
+        callback: Callback<MarsPictureData>
     )
 }

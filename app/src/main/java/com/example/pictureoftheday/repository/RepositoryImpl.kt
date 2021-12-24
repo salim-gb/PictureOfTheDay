@@ -3,7 +3,7 @@ package com.example.pictureoftheday.repository
 import com.example.pictureoftheday.BuildConfig
 import com.example.pictureoftheday.api.RetrofitInstance
 import com.example.pictureoftheday.model.EarthResponseData
-import com.example.pictureoftheday.model.MarsResponseData
+import com.example.pictureoftheday.model.MarsPictureData
 import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import retrofit2.Callback
 
@@ -24,8 +24,8 @@ class RepositoryImpl : Repository {
             .enqueue(callback)
     }
 
-    override fun getMarsDataFromServer(date: String, callback: Callback<MarsResponseData>) {
-        RetrofitInstance.marsApi.getMarsPicture(date, dim = 0.10f, BuildConfig.NASA_API_KEY)
+    override fun getMarsDataFromServer(date: String, callback: Callback<MarsPictureData>) {
+        RetrofitInstance.marsApi.getMarsPicture(date, BuildConfig.NASA_API_KEY)
             .enqueue(callback)
     }
 }
