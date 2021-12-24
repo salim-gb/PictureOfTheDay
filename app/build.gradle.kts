@@ -5,17 +5,11 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
     compileSdk = Versions.COMPILE_SDK
-
-    buildTypes.forEach {
-        val properties = Properties()
-        properties.load(project.rootProject.file("app.properties").inputStream())
-        val nasaApiKey = properties.getProperty("NASA_API_KEY", "")
-        it.buildConfigField("String", "NASA_API_KEY", nasaApiKey)
-    }
 
     defaultConfig {
         applicationId = "com.example.pictureoftheday"
@@ -64,4 +58,9 @@ dependencies {
     implementation(Libs.TIMBER)
     implementation(Libs.LOGGER)
     implementation(Libs.PREFERENCE)
+    implementation(Libs.VIEW_MODEL)
+    implementation(Libs.LIVE_DATA)
+    implementation(Libs.LIVE_DATA_KAPT)
+    implementation(Libs.VIEW_PAGER)
+    implementation(Libs.RECYCLER_VIEW)
 }

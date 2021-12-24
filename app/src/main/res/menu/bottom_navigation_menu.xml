@@ -7,9 +7,9 @@
         android:title="@string/home" />
 
     <item
-        android:id="@+id/favorites"
+        android:id="@+id/space"
         android:enabled="true"
-        android:icon="@drawable/favorite_icon_color_selector"
+        android:icon="@drawable/ic_baseline_spaces_24"
         android:title="@string/favorites" />
 
     <item
