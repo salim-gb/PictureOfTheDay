@@ -9,23 +9,23 @@ import com.example.pictureoftheday.repository.RepositoryImpl
 import com.example.pictureoftheday.util.AppState
 import com.example.pictureoftheday.util.Constants.Companion.REQUEST_ERROR
 import com.example.pictureoftheday.util.Constants.Companion.SERVER_ERROR
-import com.example.pictureoftheday.util.DateHelperImpl
+import com.example.pictureoftheday.util.DateHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class HomeViewModel(
-    private val _liveData: MutableLiveData<AppState> = MutableLiveData(),
     private val repositoryImpl: Repository = RepositoryImpl(),
-    private val dateHelperImpl: DateHelperImpl = DateHelperImpl()
+    private val dateHelperImpl: DateHelper = DateHelper()
 ) : ViewModel() {
 
-    private val _selectedDate: MutableLiveData<String> = MutableLiveData()
+    private val _selectedDay: MutableLiveData<Int> = MutableLiveData()
+    val selectedDay: LiveData<Int>
+        get() = _selectedDay
+
+    private val _liveData: MutableLiveData<AppState> = MutableLiveData()
     val liveData: LiveData<AppState>
         get() = _liveData
-
-    val selectedDate: LiveData<String>
-        get() = _selectedDate
 
     private val callback = object : Callback<PictureOfTheDayResponseData> {
         override fun onResponse(
@@ -49,20 +49,33 @@ class HomeViewModel(
 
     fun getData(): LiveData<AppState> = _liveData
 
-    private fun sendServerRequest() {
-        _liveData.value = AppState.Loading
-        _selectedDate.value?.let {
-            repositoryImpl.getPictureOfTheDayFromServer(it, callback)
+    private fun sendServerRequest(date: String) {
+//        _liveData.postValue(AppState.Loading)
+        repositoryImpl.getPictureOfTheDayFromServer(date, callback)
+    }
+
+    fun onDateChange(date: Long) {
+        when (date.toInt()) {
+            0 -> {
+                sendServerRequest(dateHelperImpl.dayString(0))
+                _selectedDay.value = 0
+            }
+            -1 -> {
+                sendServerRequest(dateHelperImpl.dayString(-1))
+                _selectedDay.value = -1
+            }
+            -2 -> {
+                sendServerRequest(dateHelperImpl.dayString(-2))
+                _selectedDay.value = -2
+            }
+            else -> {
+                sendServerRequest(dateHelperImpl.dayLong(date))
+            }
         }
     }
 
-    fun onDateChange(date: String) {
-        _selectedDate.value = date
-        sendServerRequest()
-    }
-
     init {
-        _selectedDate.value = dateHelperImpl.today
-        sendServerRequest()
+        _selectedDay.value = 0
+        sendServerRequest(dateHelperImpl.dayString(0))
     }
 }

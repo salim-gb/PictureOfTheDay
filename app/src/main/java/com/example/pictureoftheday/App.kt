@@ -1,10 +1,6 @@
 package com.example.pictureoftheday
 
 import android.app.Application
-import android.os.Build
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.edit
-import androidx.preference.PreferenceManager
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.Logger

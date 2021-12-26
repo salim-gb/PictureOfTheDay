@@ -16,6 +16,7 @@
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:title="@string/space"
+            app:menu="@menu/space_tool_bar_menu"
             app:titleCentered="true" />
 
         <com.google.android.material.tabs.TabLayout

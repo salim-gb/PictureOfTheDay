@@ -1,10 +1,12 @@
 package com.example.pictureoftheday.ui.settings
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.preference.ListPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.example.pictureoftheday.R
 
@@ -29,6 +31,10 @@ class Settings : PreferenceFragmentCompat() {
                 activity?.recreate()
                 true
             }
+        }
+
+        findPreference<Preference>("androidSdk")?.let {
+            it.summary = getString(R.string.android_sdk_version, Build.VERSION.SDK_INT.toString())
         }
     }
 }

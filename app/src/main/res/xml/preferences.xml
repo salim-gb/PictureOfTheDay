@@ -3,7 +3,6 @@
     <PreferenceCategory
         app:key="theme_category"
         app:title="Theme">
-
         <ListPreference
             app:defaultValue="system"
             app:dialogTitle="Choose Theme"
@@ -12,5 +11,13 @@
             app:key="@string/theme_preference"
             app:title="Choose Theme"
             app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:key="info_category"
+        app:title="Information">
+        <Preference
+            app:key="androidSdk"
+            app:summary="Sdk version 30"
+            app:title="Android" />
     </PreferenceCategory>
 </PreferenceScreen>

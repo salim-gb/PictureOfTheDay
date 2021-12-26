@@ -3,8 +3,10 @@ package com.example.pictureoftheday.ui.space
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.SpaceFragmentBinding
+import com.example.pictureoftheday.util.DatePicker
 import com.example.pictureoftheday.util.ScreenSlidePagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -15,6 +17,8 @@ class Space : Fragment(R.layout.space_fragment) {
 
     private lateinit var adapter: ScreenSlidePagerAdapter
 
+    private val viewModel: SpaceSharedViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = SpaceFragmentBinding.bind(view)
@@ -24,23 +28,31 @@ class Space : Fragment(R.layout.space_fragment) {
 
         TabLayoutMediator(binding.spaceTabLayout, binding.spacePager) { tab, position ->
             when (position) {
-                0 -> {
-                    tab.text = "Earth"
-                }
-                1 -> {
-                    tab.text = "Mars"
-                }
-                2 -> {
-                    tab.text = "Moon"
-                }
-                3 -> {
-                    tab.text = "Space Weather"
-                }
-                4 -> {
-                    tab.text = "Meteorite"
-                }
+                0 -> tab.text = "Earth"
+                1 -> tab.text = "Mars"
+                2 -> tab.text = "Moon"
+                3 -> tab.text = "Space Weather"
+                4 -> tab.text = "Meteorite"
             }
         }.attach()
+
+        binding.spaceToolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.calendar -> {
+                    DatePicker.datePicker.show(parentFragmentManager, "date picker")
+                    true
+                }
+                else -> false
+            }
+        }
+
+        DatePicker.datePicker.addOnPositiveButtonClickListener {
+            onCalendarDateChange(it)
+        }
+    }
+
+    private fun onCalendarDateChange(date: Long) {
+        viewModel.onDateChange(date, binding.spacePager.currentItem)
     }
 
     override fun onDestroyView() {
