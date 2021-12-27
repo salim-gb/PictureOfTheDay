@@ -31,4 +31,8 @@
     <string name="nasa_logo">Nasa Logo</string>
     <string name="android_sdk_version">Sdk version %1$s</string>
     <string name="android_version_code">Android version code %1$s</string>
+    <string name="moon_picture">Moon Picture</string>
+    <string name="moon_title">Title: %1$s</string>
+    <string name="moon_bbox">BBox: %1$s</string>
+    <string name="moon_abstract">Abstract: %1$s</string>
 </resources>

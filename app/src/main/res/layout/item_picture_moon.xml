@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.pictureoftheday.widget.CustomImageView
+            android:id="@+id/moonPicture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/moon_picture"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierHor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="moonPicture" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/moonGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dimen_small_8" />
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="title, bBox" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_small_12"
+            android:text="@string/moon_title"
+            app:layout_constraintBottom_toTopOf="@+id/bBox"
+            app:layout_constraintStart_toStartOf="@+id/moonGuideLine"
+            app:layout_constraintTop_toBottomOf="@+id/barrierHor"
+            tools:text="@tools:sample/first_names" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/bBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_small_12"
+            app:layout_constraintStart_toStartOf="@+id/moonGuideLine"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="@tools:sample/last_names" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierVer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="title, bBox" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/abstractDes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_small_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barrierVer"
+            app:layout_constraintTop_toBottomOf="@+id/barrierHor"
+            tools:text="@tools:sample/lorem" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
