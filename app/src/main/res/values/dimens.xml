@@ -7,6 +7,7 @@
     <dimen name="dimen_small_12">12dp</dimen>
     <dimen name="dimen_medium_16">16dp</dimen>
     <dimen name="dimen_large_32">32dp</dimen>
+    <dimen name="dimen_large_48">48dp</dimen>
     <dimen name="dimen_huge_60">60dp</dimen>
     <dimen name="progress_bar_height_40">40dp</dimen>
 

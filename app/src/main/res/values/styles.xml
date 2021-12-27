@@ -76,6 +76,4 @@
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
-
-    <dimen name="dimen_large_48">48dp</dimen>
 </resources>
