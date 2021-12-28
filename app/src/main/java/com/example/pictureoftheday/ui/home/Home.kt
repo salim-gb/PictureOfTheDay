@@ -5,14 +5,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.HomeFragmentBinding
 import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import com.example.pictureoftheday.util.AppState
 import com.example.pictureoftheday.util.CoilHelper
-import com.example.pictureoftheday.util.DateHelperImpl
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -23,8 +21,6 @@ class Home : Fragment(R.layout.home_fragment) {
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private val dateHelperImpl = DateHelperImpl()
-
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
     }
@@ -33,7 +29,7 @@ class Home : Fragment(R.layout.home_fragment) {
         CalendarConstraints.Builder()
             .setValidator(DateValidatorPointBackward.now())
 
-    private var datePicker = MaterialDatePicker.Builder.datePicker()
+    private val datePicker = MaterialDatePicker.Builder.datePicker()
         .setTitleText("Select Date")
         .setCalendarConstraints(constraintsBuilder.build())
         .build()
@@ -42,56 +38,47 @@ class Home : Fragment(R.layout.home_fragment) {
         super.onViewCreated(view, savedInstanceState)
         _binding = HomeFragmentBinding.bind(view)
 
-        val observer = Observer<AppState> {
+        viewModel.getData().observe(viewLifecycleOwner) {
             renderData(it)
         }
 
-        viewModel.getData().observe(this, observer)
-
-        when (viewModel.selectedDate.value) {
-            dateHelperImpl.today -> {
-                binding.chipGroup.check(R.id.chipToday)
-            }
-            dateHelperImpl.yesterday -> {
-                binding.chipGroup.check(R.id.chipYesterday)
-            }
-            dateHelperImpl.beforeYesterday -> {
-                binding.chipGroup.check(R.id.chipBeforeYesterday)
-            }
-            else -> {
-                binding.chipGroup.clearCheck()
+        binding.chipGroup.apply {
+            when (viewModel.selectedDay.value) {
+                0 -> {
+                    check(R.id.chipToday)
+                }
+                -1 -> {
+                    check(R.id.chipYesterday)
+                }
+                -2 -> {
+                    check(R.id.chipBeforeYesterday)
+                }
+                else -> {
+                    clearCheck()
+                }
             }
         }
 
-        binding.homeToolBar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.selectDate -> {
-                    datePicker.show(parentFragmentManager, "date picker")
-                    true
-                }
-                else -> false
-            }
+        binding.datePickerHome.setOnClickListener {
+            datePicker.show(parentFragmentManager, "date picker")
         }
 
         datePicker.addOnPositiveButtonClickListener {
-            dateHelperImpl.getFormatDate(it).also { formatDate ->
-                onDateChange(formatDate)
-            }
+            onDateChange(it)
             binding.chipGroup.clearCheck()
         }
 
         // Handle click selected chip from chipGroup
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
-
             when (checkedId) {
                 R.id.chipToday -> {
-                    onDateChange(dateHelperImpl.today)
+                    onDateChange(0)
                 }
                 R.id.chipYesterday -> {
-                    onDateChange(dateHelperImpl.yesterday)
+                    onDateChange(-1)
                 }
                 R.id.chipBeforeYesterday -> {
-                    onDateChange(dateHelperImpl.beforeYesterday)
+                    onDateChange(-2)
                 }
             }
         }
@@ -105,7 +92,8 @@ class Home : Fragment(R.layout.home_fragment) {
                             when (isChecked) {
                                 true -> it.data.hdurl
                                 false -> it.data.url
-                            }
+                            },
+                            binding.loadingProgressBar
                         )
                     }
                 }
@@ -113,10 +101,10 @@ class Home : Fragment(R.layout.home_fragment) {
         }
 
         // Wikipedia search
-        binding.inputLayout.setEndIconOnClickListener {
+        binding.wikitInputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data =
-                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputWikiText.text.toString()}")
+                    Uri.parse("https://en.wikipedia.org/wiki/${binding.wikiInputText.text.toString()}")
             })
         }
     }
@@ -143,16 +131,15 @@ class Home : Fragment(R.layout.home_fragment) {
     private fun showDetails(data: PictureOfTheDayResponseData) {
 
         with(binding) {
-
             title.text = data.title
             date.text = data.date
-
             CoilHelper.loadWithCoil(
                 customImageView,
                 when (chipHdRes.isChecked) {
                     true -> data.hdurl
                     false -> data.url
-                }
+                },
+                loadingProgressBar
             )
 
             description.text = data.explanation
@@ -160,7 +147,7 @@ class Home : Fragment(R.layout.home_fragment) {
         }
     }
 
-    private fun onDateChange(date: String) {
+    private fun onDateChange(date: Long) {
         viewModel.onDateChange(date)
     }
 

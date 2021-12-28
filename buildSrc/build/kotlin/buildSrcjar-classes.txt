@@ -1,1 +1,1 @@
-C:\Users\Salim\AndroidStudioProjects\PictureOfTheDay\buildSrc\build\classes\kotlin\main\Libs.class;C:\Users\Salim\AndroidStudioProjects\PictureOfTheDay\buildSrc\build\classes\kotlin\main\Versions.class
+C:\Users\Salim\AndroidStudioProjects\GeekBrains\PictureOfTheDay\buildSrc\build\classes\kotlin\main\Libs.class;C:\Users\Salim\AndroidStudioProjects\GeekBrains\PictureOfTheDay\buildSrc\build\classes\kotlin\main\Versions.class

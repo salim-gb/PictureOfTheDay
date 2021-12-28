@@ -18,4 +18,5 @@ object Libs {
     const val LIVE_DATA_KAPT = "androidx.lifecycle:lifecycle-compiler"
     const val VIEW_PAGER = "androidx.viewpager2:viewpager2"
     const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview"
+    const val GLIDE = "com.github.bumptech.glide:glide"
 }

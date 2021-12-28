@@ -11,6 +11,7 @@
     <style name="Widget.App.BottomNavigationView.Black" parent="Widget.App.BottomNavigationView">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
     </style>
+
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
         <item name="colorSurface">@color/deep_purple_100a</item>
         <item name="colorOnSurfaceVariant">@color/black</item>
@@ -28,6 +29,7 @@
         <item name="chipBackgroundColor">@color/chip_background_tint_blue</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Main</item>
     </style>
+
     <style name="ThemeOverlay.App.Chip.Main" parent="">
         <item name="colorOnSurface">@color/blue_gray_200</item>
         <item name="colorOnSecondaryContainer">@color/white</item>
@@ -38,6 +40,7 @@
         <item name="chipBackgroundColor">@color/chip_background_tint_gray</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Yellow</item>
     </style>
+
     <style name="ThemeOverlay.App.Chip.Yellow" parent="">
         <item name="colorOnSurface">@color/gray_800</item>
         <item name="colorOnSecondaryContainer">@color/white</item>
@@ -77,5 +80,8 @@
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
-    <dimen name="dimen_large_48">48dp</dimen>
+    <!--ImageView in space CollapsingToolbar-->
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

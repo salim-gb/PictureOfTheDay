@@ -5,7 +5,7 @@ plugins {
 val appcompat = "1.4.0"
 val core = "1.7.0"
 val constraintLayout = "2.1.2"
-val material = "1.6.0-alpha01"
+val material = "1.5.0-rc01"
 val retrofit = "2.9.0"
 val okhttp = "4.9.3"
 val coil = "1.4.0"
