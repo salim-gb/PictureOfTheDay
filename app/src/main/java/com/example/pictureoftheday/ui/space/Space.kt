@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.SpaceFragmentBinding
 import com.example.pictureoftheday.util.DatePicker
@@ -22,6 +24,10 @@ class Space : Fragment(R.layout.space_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = SpaceFragmentBinding.bind(view)
+
+        binding.circleImageAppbar.load(R.drawable.space_astronaut){
+            transformations(CircleCropTransformation())
+        }
 
         adapter = ScreenSlidePagerAdapter(this)
         binding.spacePager.adapter = adapter

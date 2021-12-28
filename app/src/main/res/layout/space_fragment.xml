@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:statusBarBackground="@color/transparent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    app:statusBarBackground="@color/transparent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/earthAppBar"
@@ -13,25 +14,27 @@
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
             style="?attr/collapsingToolbarLayoutMediumStyle"
             android:layout_width="match_parent"
-            app:titleCollapseMode="scale"
-            app:expandedTitleGravity="center"
+            android:layout_height="@dimen/collapsing_toolbar_layout_height"
             app:collapsedTitleTextColor="@color/white"
-            app:expandedTitleTextColor="@color/white"
+            app:expandedTitleGravity="bottom|center"
             app:expandedTitleTextAppearance="@style/TextAppearance.Material3.DisplaySmall"
-            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+            app:expandedTitleTextColor="@color/white"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            app:titleCollapseMode="scale">
 
             <ImageView
+                android:id="@+id/spaceImageCollapsing"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/dark"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
+                android:src="@drawable/space"
                 app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.2"
-                android:src="@drawable/space" />
+                app:layout_collapseParallaxMultiplier="0.2" />
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/spaceToolbar"
@@ -40,8 +43,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
                 android:elevation="0dp"
-                app:layout_collapseMode="pin"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 app:menu="@menu/space_tool_bar_menu"
                 app:title="@string/space"
                 app:titleCentered="true" />
@@ -53,7 +55,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="scrollable" />
+
     </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/circleImageAppbar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/space"
+            android:padding="5dp"
+            app:layout_anchor="@id/earthAppBar"
+            app:layout_anchorGravity="center"
+            app:layout_behavior="com.example.pictureoftheday.ui.space.ImageBehavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="@dimen/dimen_small_8"
+            tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/spacePager"
