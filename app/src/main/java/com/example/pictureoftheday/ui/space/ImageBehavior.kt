@@ -31,7 +31,6 @@ class ImageBehavior(context: Context, attr: AttributeSet) :
             child.visibility = View.GONE
         } else {
             child.visibility = View.VISIBLE
-            val a = (height / 2 - abs(bar.y)) / (height / 2)
 
             child.alpha = (height - abs(bar.y)) / (height)
             child.scaleY = (height - abs(bar.y)) / (height)

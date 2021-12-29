@@ -27,6 +27,10 @@ open class SpaceSharedViewModel(
     val isChipEarthPictureTodayChecked: LiveData<Boolean>
         get() = _isChipEarthPictureTodayChecked
 
+    private val _canScrollVertically = MutableLiveData<Boolean>()
+    val canScrollVertically: LiveData<Boolean>
+        get() = _canScrollVertically
+
     fun getEarthData(): LiveData<AppState> = _earthResponse
 
     fun getMarsData(): LiveData<AppState> = _marsResponse
@@ -101,6 +105,10 @@ open class SpaceSharedViewModel(
         dateHelperImpl.dayString(0).also {
             sendEarthRequestToServer(it)
         }
+    }
+
+    fun onScrollChange(canScroll: Boolean) {
+        _canScrollVertically.value = canScroll
     }
 }
 

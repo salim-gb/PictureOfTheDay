@@ -25,7 +25,7 @@ class Space : Fragment(R.layout.space_fragment) {
         super.onViewCreated(view, savedInstanceState)
         _binding = SpaceFragmentBinding.bind(view)
 
-        binding.circleImageAppbar.load(R.drawable.space_astronaut){
+        binding.circleImageAppbar.load(R.drawable.space_astronaut) {
             transformations(CircleCropTransformation())
         }
 
@@ -54,6 +54,10 @@ class Space : Fragment(R.layout.space_fragment) {
 
         DatePicker.datePicker.addOnPositiveButtonClickListener {
             onCalendarDateChange(it)
+        }
+
+        viewModel.canScrollVertically.observe(viewLifecycleOwner) {
+            binding.spaceTabLayout.isSelected = it
         }
     }
 

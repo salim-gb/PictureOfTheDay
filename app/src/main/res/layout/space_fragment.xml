@@ -8,7 +8,7 @@
     app:statusBarBackground="@color/transparent">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/earthAppBar"
+        android:id="@+id/spaceAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
@@ -58,22 +58,22 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/circleImageAppbar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="@string/space"
-            android:padding="5dp"
-            app:layout_anchor="@id/earthAppBar"
-            app:layout_anchorGravity="center"
-            app:layout_behavior="com.example.pictureoftheday.ui.space.ImageBehavior"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-            app:strokeColor="@android:color/white"
-            app:strokeWidth="@dimen/dimen_small_8"
-            tools:srcCompat="@tools:sample/avatars" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/circleImageAppbar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/space"
+        android:padding="5dp"
+        app:layout_anchor="@id/spaceAppBar"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="com.example.pictureoftheday.ui.space.ImageBehavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:strokeColor="@android:color/white"
+        app:strokeWidth="@dimen/dimen_small_8"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/spacePager"
