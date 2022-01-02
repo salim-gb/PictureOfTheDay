@@ -23,13 +23,18 @@ class Moon : Fragment(R.layout.moon_fragment) {
 
         binding.moonRecyclerView.adapter = MoonAdapter(moonPicturesList)
 
-        binding.moonRecyclerView.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+        binding.moonRecyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
             onScrollChange()
         }
     }
 
     private fun onScrollChange() {
-        viewModel.onScrollChange(binding.moonRecyclerView.canScrollVertically(-1))
+        viewModel.onScrollStateChange(binding.moonRecyclerView.canScrollVertically(-1))
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.onScrollStateChange(binding.moonRecyclerView.canScrollVertically(-1))
     }
 
     override fun onDestroyView() {

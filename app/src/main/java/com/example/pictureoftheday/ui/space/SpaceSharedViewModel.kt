@@ -27,9 +27,9 @@ open class SpaceSharedViewModel(
     val isChipEarthPictureTodayChecked: LiveData<Boolean>
         get() = _isChipEarthPictureTodayChecked
 
-    private val _canScrollVertically = MutableLiveData<Boolean>()
-    val canScrollVertically: LiveData<Boolean>
-        get() = _canScrollVertically
+    private val _appBarElevationState = MutableLiveData<Boolean>()
+    val appBarElevationState: LiveData<Boolean>
+        get() = _appBarElevationState
 
     fun getEarthData(): LiveData<AppState> = _earthResponse
 
@@ -107,8 +107,8 @@ open class SpaceSharedViewModel(
         }
     }
 
-    fun onScrollChange(canScroll: Boolean) {
-        _canScrollVertically.value = canScroll
+    fun onScrollStateChange(state: Boolean) {
+        _appBarElevationState.value = state
     }
 }
 

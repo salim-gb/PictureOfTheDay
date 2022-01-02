@@ -1,69 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipEarthPictureToday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_small_12"
-            android:checked="true"
-            android:text="@string/today"
-            app:chipStrokeWidth="@dimen/dimen_tiny_2"
-            app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:checked="true" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipEarthPictureToday">
-
-            <com.example.pictureoftheday.widget.CustomImageView
-                android:id="@+id/earthImageView"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipEarthPictureToday"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/dimen_small_12"
-                android:background="@color/gray_900"
-                android:contentDescription="@string/photo_of_the_day_stub"
-                android:scaleType="centerInside"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_margin="@dimen/dimen_small_12"
+                android:checked="true"
+                android:text="@string/today"
+                app:chipStrokeWidth="@dimen/dimen_tiny_2"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:checked="true" />
 
-            <ProgressBar
-                android:id="@+id/loadingProgressBar"
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:visibility="visible"
-                tools:visibility="visible" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipEarthPictureToday">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/noPictureMessage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@color/gray_900"
-                android:gravity="center"
-                android:padding="@dimen/dimen_large_32"
-                android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-                android:textColor="@color/white"
-                android:visibility="gone"
-                tools:text="@string/no_picture_message"
-                tools:visibility="visible" />
-        </FrameLayout>
+                <com.example.pictureoftheday.widget.CustomImageView
+                    android:id="@+id/earthImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dimen_small_12"
+                    android:background="@color/gray_900"
+                    android:contentDescription="@string/photo_of_the_day_stub"
+                    android:scaleType="centerInside"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ProgressBar
+                    android:id="@+id/loadingProgressBar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
 
-</androidx.core.widget.NestedScrollView>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/noPictureMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/gray_900"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_large_32"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    tools:text="@string/no_picture_message"
+                    tools:visibility="visible" />
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.example.pictureoftheday.R
@@ -17,7 +18,19 @@ class Space : Fragment(R.layout.space_fragment) {
     private var _binding: SpaceFragmentBinding? = null
     private val binding get() = _binding!!
 
+    private var pagerPosition = 0
+
     private lateinit var adapter: ScreenSlidePagerAdapter
+
+    private val callback = object : ViewPager2.OnPageChangeCallback() {
+        override fun onPageSelected(position: Int) {
+            pagerPosition = position
+            when (position) {
+                0, 3, 4 -> binding.spaceAppBar.elevation = 0f
+                else -> super.onPageSelected(position)
+            }
+        }
+    }
 
     private val viewModel: SpaceSharedViewModel by activityViewModels()
 
@@ -31,6 +44,8 @@ class Space : Fragment(R.layout.space_fragment) {
 
         adapter = ScreenSlidePagerAdapter(this)
         binding.spacePager.adapter = adapter
+
+        binding.spacePager.registerOnPageChangeCallback(callback)
 
         TabLayoutMediator(binding.spaceTabLayout, binding.spacePager) { tab, position ->
             when (position) {
@@ -56,16 +71,20 @@ class Space : Fragment(R.layout.space_fragment) {
             onCalendarDateChange(it)
         }
 
-        viewModel.canScrollVertically.observe(viewLifecycleOwner) {
-            binding.spaceTabLayout.isSelected = it
+        viewModel.appBarElevationState.observe(viewLifecycleOwner) {
+            binding.spaceAppBar.elevation = if (it) 20f else 0f
         }
     }
 
     private fun onCalendarDateChange(date: Long) {
-        viewModel.onDateChange(date, binding.spacePager.currentItem)
+        viewModel.onDateChange(
+            date,
+            pagerPosition
+        )
     }
 
     override fun onDestroyView() {
+        binding.spacePager.unregisterOnPageChangeCallback(callback)
         _binding = null
         super.onDestroyView()
     }

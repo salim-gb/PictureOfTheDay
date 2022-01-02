@@ -11,9 +11,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/settingsToolbar"
-            style="@style/Widget.Material3.Toolbar"
             android:layout_width="match_parent"
-            android:background="@color/white"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/settings" />
 

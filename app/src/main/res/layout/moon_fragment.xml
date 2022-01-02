@@ -6,8 +6,6 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/moonRecyclerView"
-        android:layout_marginHorizontal="@dimen/dimen_small_8"
-        android:layout_marginVertical="@dimen/dimen_medium_16"
         android:paddingTop="@dimen/dimen_medium_16"
         android:clipToPadding="false"
         android:layout_width="match_parent"

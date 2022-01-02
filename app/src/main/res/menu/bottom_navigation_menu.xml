@@ -10,7 +10,7 @@
         android:id="@+id/space"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_spaces_24"
-        android:title="@string/favorites" />
+        android:title="@string/space" />
 
     <item
         android:id="@+id/settings"

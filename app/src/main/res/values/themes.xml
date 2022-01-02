@@ -1,14 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PictureOfTheDay.Base" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.PictureOfTheDay.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
-        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="collapsingToolbarLayoutStyle">@style/Widget.App.CollapsingToolbar</item>
+        <item name="tabStyle">@style/Widget.App.TabLayout</item>
     </style>
 
     <!--Main theme-->
     <style name="Theme.PictureOfTheDay.Main" parent="Theme.PictureOfTheDay.Base">
-        <item name="colorPrimary">@color/blue_gray_600</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/gray_500</item>
         <item name="colorPrimaryVariant">@color/blue_200</item>
         <item name="colorSecondary">@color/blue_200</item>
         <item name="colorSurface">@color/light_blue_100</item>
@@ -22,14 +24,14 @@
         <item name="colorPrimaryVariant">@color/yellow_900</item>
         <item name="colorSecondary">@color/yellow_900</item>
         <item name="colorSurface">@color/yellow_700</item>
-        <item name="colorOnSurface">@color/black</item>
+        <item name="colorOnSurface">@color/gray_700</item>
         <item name="chipStyle">@style/Widget.App.Chip.Yellow</item>
     </style>
 
     <!--Black theme-->
-    <style name="Theme.PictureOfTheDay.Black" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="Theme.PictureOfTheDay.Black" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
-        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView.Black</item>
+        <item name="collapsingToolbarLayoutStyle">@style/Widget.App.CollapsingToolbar</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
         <item name="colorPrimary">@color/deep_purple_100a</item>
         <item name="colorPrimaryVariant">@color/yellow</item>
@@ -38,6 +40,7 @@
         <item name="colorSurface">@color/gray_900</item>
         <item name="chipStyle">@style/Widget.App.Chip.Black</item>
         <item name="android:windowBackground">@color/black</item>
+        <item name="tabStyle">@style/Widget.App.TabLayout</item>
     </style>
 
 </resources>

@@ -38,7 +38,16 @@ class Mars : Fragment(R.layout.mars_fragment) {
         }
 
         viewModel.sendMarsRequestToServer(DEFAULT_MARS_DATE)
+
+        binding.marsRecyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
+            onScrollChange()
+        }
     }
+
+    private fun onScrollChange() {
+        viewModel.onScrollStateChange(binding.marsRecyclerView.canScrollVertically(-1))
+    }
+
 
     private fun renderData(state: AppState) {
         when (state) {
@@ -55,6 +64,11 @@ class Mars : Fragment(R.layout.mars_fragment) {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.onScrollStateChange(binding.marsRecyclerView.canScrollVertically(-1))
     }
 
     override fun onDestroyView() {

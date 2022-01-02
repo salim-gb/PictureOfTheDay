@@ -11,18 +11,15 @@
         android:id="@+id/spaceAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
-            style="?attr/collapsingToolbarLayoutMediumStyle"
+            style="?attr/collapsingToolbarLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/collapsing_toolbar_layout_height"
-            app:collapsedTitleTextColor="@color/white"
-            app:expandedTitleGravity="bottom|center"
-            app:expandedTitleTextAppearance="@style/TextAppearance.Material3.DisplaySmall"
-            app:expandedTitleTextColor="@color/white"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            app:layout_scrollFlags="scroll|enterAlways"
             app:titleCollapseMode="scale">
 
             <ImageView
@@ -38,12 +35,11 @@
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/spaceToolbar"
-                style="@style/Widget.Material3.Toolbar"
+                style="@style/Widget.App.Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
                 android:elevation="0dp"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 app:menu="@menu/space_tool_bar_menu"
                 app:title="@string/space"
                 app:titleCentered="true" />
