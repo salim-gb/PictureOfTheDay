@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -14,27 +13,8 @@
             android:id="@+id/settingsToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            style="@style/Widget.Material3.Toolbar"
             app:title="@string/settings" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/versionName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-        tools:text="@tools:sample/date/ddmmyy"
-        android:layout_margin="@dimen/dimen_small_8"
-        android:fontFamily="@font/roboto"/>
-
-    <TextView
-        android:id="@+id/versionCode"
-        android:layout_margin="@dimen/dimen_small_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-        tools:text="@tools:sample/date/ddmmyy"
-        android:fontFamily="@font/roboto"/>
 </LinearLayout>

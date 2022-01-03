@@ -5,7 +5,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.pictureoftheday.ui.space.Meteorites
 import com.example.pictureoftheday.ui.space.Moon
 import com.example.pictureoftheday.ui.space.Weather
-import com.example.pictureoftheday.ui.space.earth.Earth
+import com.example.pictureoftheday.ui.space.Earth
 import com.example.pictureoftheday.ui.space.mars.Mars
 
 private const val NUM_PAGES = 5

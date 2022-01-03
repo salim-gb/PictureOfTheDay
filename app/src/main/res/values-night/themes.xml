@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.PictureOfTheDay.Main" parent="Theme.PictureOfTheDay.Base">
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
-        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView.Black</item>
+        <item name="collapsingToolbarLayoutStyle">@style/Widget.App.CollapsingToolbar</item>
         <item name="colorPrimary">@color/deep_purple_100a</item>
         <item name="colorPrimaryVariant">@color/black_900</item>
         <item name="colorOnSurface">@color/white</item>

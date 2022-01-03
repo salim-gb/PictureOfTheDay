@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--BottomNavigation-->
-    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
-        <item name="labelVisibilityMode">unlabeled</item>
-        <item name="android:minHeight">@dimen/dimen_large_48</item>
-        <item name="itemPaddingTop">@dimen/dimen_small_8</item>
-        <item name="itemPaddingBottom">@dimen/dimen_small_8</item>
-    </style>
-    <!--Overlay Black Theme BottomNavigation-->
-    <style name="Widget.App.BottomNavigationView.Black" parent="Widget.App.BottomNavigationView">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
-    </style>
-
-    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
-        <item name="colorSurface">@color/deep_purple_100a</item>
-        <item name="colorOnSurfaceVariant">@color/black</item>
-    </style>
-
     <!--Chip Group Base-->
-    <style name="Widget.App.Chip.Base" parent="Widget.Material3.Chip.Filter">
+    <style name="Widget.App.Chip.Base" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="chipStrokeWidth">0dp</item>
-        <item name="checkedIconVisible">true</item>
+        <item name="checkedIconVisible">false</item>
         <item name="chipStartPadding">@dimen/dimen_tiny_2</item>
         <item name="chipEndPadding">@dimen/dimen_tiny_2</item>
     </style>
@@ -32,19 +15,16 @@
 
     <style name="ThemeOverlay.App.Chip.Main" parent="">
         <item name="colorOnSurface">@color/blue_gray_200</item>
-        <item name="colorOnSecondaryContainer">@color/white</item>
-        <item name="colorOnSurfaceVariant">@color/gray_700</item>
     </style>
     <!--Chip Yellow Theme-->
     <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip.Base">
         <item name="chipBackgroundColor">@color/chip_background_tint_gray</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Yellow</item>
+        <item name="rippleColor">@color/yellow_700</item>
     </style>
 
     <style name="ThemeOverlay.App.Chip.Yellow" parent="">
-        <item name="colorOnSurface">@color/gray_800</item>
-        <item name="colorOnSecondaryContainer">@color/white</item>
-        <item name="colorOnSurfaceVariant">@color/gray_200</item>
+        <item name="colorOnSurface">@color/black</item>
     </style>
     <!--Chip Black Theme-->
     <style name="Widget.App.Chip.Black" parent="Widget.App.Chip.Base">
@@ -53,9 +33,8 @@
     </style>
 
     <style name="ThemeOverlay.App.Chip.Black" parent="">
+        <item name="colorPrimary">@color/black</item>
         <item name="colorOnSurface">@color/deep_purple_100a</item>
-        <item name="colorOnSecondaryContainer">@color/white</item>
-        <item name="colorOnSurfaceVariant">@color/gray_200</item>
     </style>
     <!--chip home picture of the day hd resolution-->
     <style name="Widget.App.Chip.Resolution" parent="">
@@ -64,7 +43,7 @@
     </style>
 
     <!--Button icon only-->
-    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.Material3.Button">
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button">
         <item name="iconPadding">0dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
@@ -84,4 +63,39 @@
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
+
+    <!--CollapsingToolbar-->
+    <style name="Widget.App.CollapsingToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="expandedTitleTextAppearance">
+            @style/TextAppearance.App.CollapsingToolbar.Expanded
+        </item>
+        <item name="collapsedTitleTextAppearance">
+            @style/TextAppearance.App.CollapsingToolbar.Collapsed
+        </item>
+        <item name="expandedTitleGravity">bottom|center_horizontal</item>
+        <item name="expandedTitleMarginBottom">@dimen/dimen_medium_16</item>
+    </style>
+
+    <style name="TextAppearance.App.CollapsingToolbar.Expanded" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.App.CollapsingToolbar.Collapsed" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--TabLayout-->
+    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+    </style>
+
+    <!--Toolbar-->
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
 </resources>

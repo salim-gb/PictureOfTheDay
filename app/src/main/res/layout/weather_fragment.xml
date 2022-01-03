@@ -11,7 +11,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textAppearance="@style/TextAppearance.Material3.DisplayMedium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:text="@string/weather"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
