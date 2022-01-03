@@ -14,13 +14,26 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dimen_medium_16"
-                android:contentDescription="@string/nasa_logo"
-                app:srcCompat="@drawable/ic_nasa_logo" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/moon"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_width="@dimen/dimen_huge_50"
+                    android:layout_height="@dimen/dimen_huge_50"
+                    app:srcCompat="@drawable/full_moon"/>
+
+                <ImageView
+                    android:id="@+id/nasaLogo"
+                    android:layout_width="@dimen/dimen_huge_90"
+                    android:layout_height="@dimen/dimen_huge_90"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_medium_16"
+                    android:contentDescription="@string/nasa_logo"
+                    app:srcCompat="@drawable/ic_nasa_logo" />
+            </FrameLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/wikitInputLayout"
@@ -85,7 +98,6 @@
                     android:layout_marginStart="@dimen/dimen_small_12"
                     app:icon="@drawable/ic_baseline_calendar_month_24" />
             </LinearLayout>
-
 
             <FrameLayout
                 android:layout_width="match_parent"

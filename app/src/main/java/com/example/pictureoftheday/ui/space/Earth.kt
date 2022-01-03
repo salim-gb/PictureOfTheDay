@@ -1,4 +1,4 @@
-package com.example.pictureoftheday.ui.space.earth
+package com.example.pictureoftheday.ui.space
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.fragment.app.activityViewModels
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.EarthFragmentBinding
 import com.example.pictureoftheday.model.EarthResponseData
-import com.example.pictureoftheday.ui.space.SpaceSharedViewModel
 import com.example.pictureoftheday.util.AppState
 import com.example.pictureoftheday.util.CoilHelper
 import com.example.pictureoftheday.util.Constants.Companion.DEFAULT_EARTH_DATE

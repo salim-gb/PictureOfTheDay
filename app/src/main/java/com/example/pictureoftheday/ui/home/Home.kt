@@ -1,9 +1,16 @@
 package com.example.pictureoftheday.ui.home
 
+import android.animation.*
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.pictureoftheday.R
@@ -15,6 +22,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
+import kotlin.random.Random
 
 class Home : Fragment(R.layout.home_fragment) {
 
@@ -37,6 +45,13 @@ class Home : Fragment(R.layout.home_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = HomeFragmentBinding.bind(view)
+
+        binding.nasaLogo.doOnLayout {
+            repeat(50) {
+                starShow()
+            }
+            moonShow()
+        }
 
         viewModel.getData().observe(viewLifecycleOwner) {
             renderData(it)
@@ -145,6 +160,72 @@ class Home : Fragment(R.layout.home_fragment) {
             description.text = data.explanation
             copyRight.text = data.copyright
         }
+    }
+
+    private fun moonShow() {
+        val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 2f)
+        val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 2f)
+
+        val scaler = ObjectAnimator.ofPropertyValuesHolder(binding.moon, scaleX, scaleY)
+
+        val mover = ObjectAnimator.ofFloat(
+            binding.moon,
+            View.TRANSLATION_X, (100..1000).random().toFloat()
+        )
+
+        val set = AnimatorSet()
+
+        set.playTogether(mover, scaler)
+        set.duration = Random.nextLong(2000, 10000)
+        set.start()
+    }
+
+    private fun starShow() {
+
+        val c = binding.nasaLogo.parent as ViewGroup
+
+        val containerW = c.width
+        val containerH = c.height
+
+        var starW: Float = binding.nasaLogo.width.toFloat()
+        var starH: Float = binding.nasaLogo.height.toFloat()
+
+        val newStar = AppCompatImageView(requireContext())
+
+        newStar.setImageResource(R.drawable.ic_baseline_star_24)
+
+        newStar.layoutParams = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.WRAP_CONTENT,
+            FrameLayout.LayoutParams.WRAP_CONTENT
+        )
+
+        c.addView(newStar)
+
+        newStar.scaleX = Random.nextFloat()
+
+        newStar.scaleY = newStar.scaleX
+
+        starW *= newStar.scaleX
+        starH *= newStar.scaleY
+
+        newStar.translationX = Math.random().toFloat() * containerW - starW / 2
+
+        val mover = ObjectAnimator.ofFloat(newStar, View.TRANSLATION_Y, -starH, containerH + starH)
+
+        val lighter = ObjectAnimator.ofArgb(newStar, "colorFilter", Color.BLACK, Color.WHITE)
+
+        val set = AnimatorSet()
+
+        set.playTogether(mover, lighter)
+
+        set.duration = Random.nextLong(1000, 10000)
+
+        set.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator?) {
+                c.removeView(newStar)
+            }
+        })
+        set.start()
     }
 
     private fun onDateChange(date: Long) {

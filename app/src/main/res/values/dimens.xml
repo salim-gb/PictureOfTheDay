@@ -9,6 +9,8 @@
     <dimen name="dimen_large_32">32dp</dimen>
     <dimen name="dimen_large_48">48dp</dimen>
     <dimen name="dimen_huge_60">60dp</dimen>
+    <dimen name="dimen_huge_50">50dp</dimen>
+    <dimen name="dimen_huge_90">90dp</dimen>
     <dimen name="progress_bar_height_40">40dp</dimen>
     <dimen name="collapsing_toolbar_layout_height">280dp</dimen>
 
