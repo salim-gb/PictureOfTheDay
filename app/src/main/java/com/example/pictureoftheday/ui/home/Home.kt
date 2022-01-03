@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
@@ -18,6 +17,7 @@ import com.example.pictureoftheday.databinding.HomeFragmentBinding
 import com.example.pictureoftheday.model.PictureOfTheDayResponseData
 import com.example.pictureoftheday.util.AppState
 import com.example.pictureoftheday.util.CoilHelper
+import com.google.android.material.chip.Chip
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -42,16 +42,11 @@ class Home : Fragment(R.layout.home_fragment) {
         .setCalendarConstraints(constraintsBuilder.build())
         .build()
 
+    private var animateToChip: Chip? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = HomeFragmentBinding.bind(view)
-
-        binding.nasaLogo.doOnLayout {
-            repeat(50) {
-                starShow()
-            }
-            moonShow()
-        }
 
         viewModel.getData().observe(viewLifecycleOwner) {
             renderData(it)
@@ -87,12 +82,15 @@ class Home : Fragment(R.layout.home_fragment) {
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.chipToday -> {
+                    animateChip(binding.chipToday)
                     onDateChange(0)
                 }
                 R.id.chipYesterday -> {
+                    animateChip(binding.chipYesterday)
                     onDateChange(-1)
                 }
                 R.id.chipBeforeYesterday -> {
+                    animateChip(binding.chipBeforeYesterday)
                     onDateChange(-2)
                 }
             }
@@ -105,7 +103,10 @@ class Home : Fragment(R.layout.home_fragment) {
                         CoilHelper.loadWithCoil(
                             binding.customImageView,
                             when (isChecked) {
-                                true -> it.data.hdurl
+                                true -> {
+                                    animateChip(binding.chipHdRes)
+                                    it.data.hdurl
+                                }
                                 false -> it.data.url
                             },
                             binding.loadingProgressBar
@@ -160,6 +161,16 @@ class Home : Fragment(R.layout.home_fragment) {
             description.text = data.explanation
             copyRight.text = data.copyright
         }
+    }
+
+    private fun animateChip(chip: Chip) {
+        val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.12f)
+        val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.12f)
+
+        val animator = ObjectAnimator.ofPropertyValuesHolder(chip, scaleX, scaleY)
+        animator.repeatCount = 5
+        animator.repeatMode = ObjectAnimator.REVERSE
+        animator.start()
     }
 
     private fun moonShow() {
@@ -230,6 +241,26 @@ class Home : Fragment(R.layout.home_fragment) {
 
     private fun onDateChange(date: Long) {
         viewModel.onDateChange(date)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        animateToChip = when (binding.chipGroup.checkedChipId) {
+            R.id.chipToday -> binding.chipToday
+            R.id.chipYesterday -> binding.chipYesterday
+            R.id.chipBeforeYesterday -> binding.chipBeforeYesterday
+            else -> null
+        }
+
+        binding.nasaLogo.doOnLayout {
+            animateToChip?.let { animateChip(it) }
+
+            repeat(50) {
+                starShow()
+            }
+            moonShow()
+        }
     }
 
     override fun onDestroyView() {
