@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.MarsFragmentBinding
 import com.example.pictureoftheday.model.MarsPictureData
+import com.example.pictureoftheday.ui.FullscreenImageFragmentDirections
 import com.example.pictureoftheday.ui.space.SpaceSharedViewModel
 import com.example.pictureoftheday.util.AppState
 import com.example.pictureoftheday.util.Constants.Companion.DEFAULT_MARS_DATE
@@ -26,7 +28,12 @@ class Mars : Fragment(R.layout.mars_fragment) {
         super.onViewCreated(view, savedInstanceState)
         _binding = MarsFragmentBinding.bind(view)
 
-        marsAdapter = MarsAdapter()
+        marsAdapter = MarsAdapter {
+            FullscreenImageFragmentDirections
+            val action =
+                FullscreenImageFragmentDirections.actionGlobalFullscreenImage(marsData = it)
+            findNavController().navigate(action)
+        }
 
         binding.marsRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

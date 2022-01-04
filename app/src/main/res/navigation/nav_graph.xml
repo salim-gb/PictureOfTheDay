@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
     app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/fullscreenImageFragment"
+        android:name="com.example.pictureoftheday.ui.FullscreenImageFragment"
+        tools:layout="@layout/fullscreen_image_fragment">
+
+        <argument
+            android:name="homeData"
+            android:defaultValue="@null"
+            app:argType="com.example.pictureoftheday.model.PictureOfTheDayResponseData"
+            app:nullable="true" />
+
+        <argument
+            android:name="earthData"
+            android:defaultValue="@null"
+            app:argType="com.example.pictureoftheday.model.EarthResponseData"
+            app:nullable="true" />
+
+        <argument
+            android:name="marsData"
+            android:defaultValue="@null"
+            app:argType="com.example.pictureoftheday.model.MarsPhoto"
+            app:nullable="true" />
+
+        <argument
+            android:name="moonData"
+            android:defaultValue="@null"
+            app:argType="com.example.pictureoftheday.model.MoonPicture"
+            app:nullable="true" />
+
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_fullscreenImage"
+        app:destination="@+id/fullscreenImageFragment" />
 
     <include app:graph="@navigation/home" />
     <include app:graph="@navigation/space" />

@@ -35,4 +35,5 @@
     <string name="moon_title">Title: %1$s</string>
     <string name="moon_bbox">BBox: %1$s</string>
     <string name="moon_abstract">Abstract: %1$s</string>
+    <string name="fullscreen_image">Fullscreen Image</string>
 </resources>

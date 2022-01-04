@@ -12,9 +12,11 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.HomeFragmentBinding
 import com.example.pictureoftheday.model.PictureOfTheDayResponseData
+import com.example.pictureoftheday.ui.FullscreenImageFragmentDirections
 import com.example.pictureoftheday.util.AppState
 import com.example.pictureoftheday.util.CoilHelper
 import com.google.android.material.chip.Chip
@@ -30,7 +32,7 @@ class Home : Fragment(R.layout.home_fragment) {
     private val binding get() = _binding!!
 
     private val viewModel: HomeViewModel by lazy {
-        ViewModelProvider(this).get(HomeViewModel::class.java)
+        ViewModelProvider(this)[HomeViewModel::class.java]
     }
 
     private val constraintsBuilder =
@@ -44,12 +46,21 @@ class Home : Fragment(R.layout.home_fragment) {
 
     private var animateToChip: Chip? = null
 
+    private var currentData: PictureOfTheDayResponseData? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = HomeFragmentBinding.bind(view)
 
         viewModel.getData().observe(viewLifecycleOwner) {
             renderData(it)
+        }
+
+        binding.customImageView.setOnClickListener {
+            currentData?.let {
+                val action = FullscreenImageFragmentDirections.actionGlobalFullscreenImage(homeData = currentData)
+                findNavController().navigate(action)
+            }
         }
 
         binding.chipGroup.apply {
@@ -145,7 +156,7 @@ class Home : Fragment(R.layout.home_fragment) {
     }
 
     private fun showDetails(data: PictureOfTheDayResponseData) {
-
+        currentData = data
         with(binding) {
             title.text = data.title
             date.text = data.date
