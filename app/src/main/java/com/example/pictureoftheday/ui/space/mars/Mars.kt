@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.MarsFragmentBinding
@@ -32,7 +33,16 @@ class Mars : Fragment(R.layout.mars_fragment) {
             FullscreenImageFragmentDirections
             val action =
                 FullscreenImageFragmentDirections.actionGlobalFullscreenImage(marsData = it)
-            findNavController().navigate(action)
+            findNavController().navigate(
+                action,
+                navOptions {
+                    anim {
+                        enter = R.anim.slide_in_right
+                        exit = R.anim.slide_out_right
+                        popEnter = R.anim.fade_in
+                        popExit = R.anim.fade_out
+                    }
+                })
         }
 
         binding.marsRecyclerView.apply {

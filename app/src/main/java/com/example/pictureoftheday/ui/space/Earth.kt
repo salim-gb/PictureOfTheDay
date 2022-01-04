@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.EarthFragmentBinding
@@ -52,9 +53,10 @@ class Earth : Fragment(R.layout.earth_fragment) {
 
         binding.earthImageView.setOnClickListener {
             currentData?.let {
+                val extras = FragmentNavigatorExtras(binding.earthImageView to "image_big")
                 val action =
                     FullscreenImageFragmentDirections.actionGlobalFullscreenImage(earthData = currentData)
-                findNavController().navigate(action)
+                findNavController().navigate(action, extras)
             }
         }
     }

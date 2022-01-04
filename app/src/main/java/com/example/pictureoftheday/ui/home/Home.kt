@@ -12,6 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.HomeFragmentBinding
@@ -58,8 +59,10 @@ class Home : Fragment(R.layout.home_fragment) {
 
         binding.customImageView.setOnClickListener {
             currentData?.let {
-                val action = FullscreenImageFragmentDirections.actionGlobalFullscreenImage(homeData = currentData)
-                findNavController().navigate(action)
+                val extras = FragmentNavigatorExtras(binding.customImageView to "image_big")
+                val action =
+                    FullscreenImageFragmentDirections.actionGlobalFullscreenImage(homeData = currentData)
+                findNavController().navigate(action, extras)
             }
         }
 

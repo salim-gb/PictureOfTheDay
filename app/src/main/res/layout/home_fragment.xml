@@ -113,6 +113,7 @@
                     android:background="@color/gray_900"
                     android:contentDescription="@string/photo_of_the_day_stub"
                     android:scaleType="fitCenter"
+                    android:transitionName="image_big"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <View

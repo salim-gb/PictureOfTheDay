@@ -1,7 +1,9 @@
 package com.example.pictureoftheday.ui
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -11,19 +13,36 @@ import coil.load
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.FullscreenImageFragmentBinding
 
-class FullscreenImageFragment: Fragment(R.layout.fullscreen_image_fragment) {
+class FullscreenImageFragment : Fragment(R.layout.fullscreen_image_fragment) {
 
     private var _binding: FullscreenImageFragmentBinding? = null
     private val binding get() = _binding!!
 
     private val args: FullscreenImageFragmentArgs by navArgs()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val animation =
+            TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
+
+        sharedElementEnterTransition = animation
+        sharedElementReturnTransition = animation
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FullscreenImageFragmentBinding.bind(view)
 
         val navController = findNavController()
-        binding.fullscreenToolbar.setupWithNavController(navController)
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.fullscreenToolbar.setupWithNavController(navController, appBarConfiguration)
+
+        /* set toolbar navigation icon */
+        binding.fullscreenToolbar.apply {
+            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+            setNavigationIconTint(ContextCompat.getColor(context, R.color.white))
+        }
 
         args.homeData?.let {
             binding.imageView.load(it.url)

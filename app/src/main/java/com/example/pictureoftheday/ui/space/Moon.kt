@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.MoonFragmentBinding
 import com.example.pictureoftheday.repository.MoonDataSource
@@ -27,7 +28,16 @@ class Moon : Fragment(R.layout.moon_fragment) {
             it.let {
                 val action =
                     FullscreenImageFragmentDirections.actionGlobalFullscreenImage(moonData = it)
-                findNavController().navigate(action)
+                findNavController().navigate(
+                    action,
+                    navOptions {
+                        anim {
+                            enter = android.R.animator.fade_in
+                            exit = android.R.animator.fade_out
+                            popEnter = android.R.animator.fade_in
+                            popExit = android.R.animator.fade_out
+                        }
+                    })
             }
         }
 

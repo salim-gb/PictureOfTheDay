@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
+        android:transitionName="image_big"
         tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -47,8 +48,6 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/fullscreenToolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:theme="@style/Widget.App.Toolbar.Transparent.WhiteArrow" />
-
+        android:layout_height="?attr/actionBarSize" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
