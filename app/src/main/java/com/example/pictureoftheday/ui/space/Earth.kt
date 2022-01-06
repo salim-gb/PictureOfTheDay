@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.EarthFragmentBinding
 import com.example.pictureoftheday.model.EarthResponseData
+import com.example.pictureoftheday.ui.FullscreenImageFragmentDirections
 import com.example.pictureoftheday.util.AppState
 import com.example.pictureoftheday.util.CoilHelper
 import com.example.pictureoftheday.util.Constants.Companion.DEFAULT_EARTH_DATE
@@ -17,6 +20,8 @@ class Earth : Fragment(R.layout.earth_fragment) {
 
     private var _binding: EarthFragmentBinding? = null
     private val binding get() = _binding!!
+
+    private var currentData: EarthResponseData? = null
 
     private val viewModel: SpaceSharedViewModel by activityViewModels()
 
@@ -45,6 +50,15 @@ class Earth : Fragment(R.layout.earth_fragment) {
                 }
             }
         }
+
+        binding.earthImageView.setOnClickListener {
+            currentData?.let {
+                val extras = FragmentNavigatorExtras(binding.earthImageView to "image_big")
+                val action =
+                    FullscreenImageFragmentDirections.actionGlobalFullscreenImage(earthData = currentData)
+                findNavController().navigate(action, extras)
+            }
+        }
     }
 
     private fun onChipEarthPictureToday() {
@@ -61,6 +75,7 @@ class Earth : Fragment(R.layout.earth_fragment) {
             is AppState.Success -> {
                 when (appState.data) {
                     is EarthResponseData -> {
+                        currentData = appState.data
                         binding.noPictureMessage.visibility = View.GONE
 
                         CoilHelper.loadWithCoil(

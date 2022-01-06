@@ -41,6 +41,7 @@
                     android:background="@color/gray_900"
                     android:contentDescription="@string/photo_of_the_day_stub"
                     android:scaleType="centerInside"
+                    android:transitionName="image_big"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ProgressBar

@@ -12,20 +12,33 @@ import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.ItemViewMarsBinding
 import com.example.pictureoftheday.model.MarsPhoto
 
-class MarsAdapter :
+class MarsAdapter(private val onClick: (MarsPhoto) -> Unit) :
     ListAdapter<MarsPhoto, MarsAdapter.MarsViewHolder>(MarsDiffCallback) {
 
-    inner class MarsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MarsViewHolder(itemView: View, val onClick: (MarsPhoto) -> Unit) :
+        RecyclerView.ViewHolder(itemView) {
 
         private val binding = ItemViewMarsBinding.bind(itemView)
+        private var currentPhoto: MarsPhoto? = null
+
+        init {
+            itemView.setOnClickListener {
+                currentPhoto?.let {
+                    onClick(it)
+                }
+            }
+        }
 
         fun bind(marsItem: MarsPhoto, context: Context) {
+            currentPhoto = marsItem
             with(binding) {
                 binding.sol.text = context.getString(R.string.sol, marsItem.sol)
                 cameraName.text = context.getString(R.string.camera_name, marsItem.camera?.name)
                 roverName.text = context.getString(R.string.rover_name, marsItem.rover?.name)
-                landingDate.text = context.getString(R.string.landing_date, marsItem.rover?.landingDate)
-                launchDate.text = context.getString(R.string.launch_date, marsItem.rover?.launchDate)
+                landingDate.text =
+                    context.getString(R.string.landing_date, marsItem.rover?.landingDate)
+                launchDate.text =
+                    context.getString(R.string.launch_date, marsItem.rover?.launchDate)
                 status.text = context.getString(R.string.rover_status, marsItem.rover?.status)
                 binding.marsPictureImageView.load(marsItem.url)
             }
@@ -35,7 +48,7 @@ class MarsAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_view_mars, parent, false)
-        return MarsViewHolder(view)
+        return MarsViewHolder(view, onClick)
     }
 
     override fun onBindViewHolder(holder: MarsViewHolder, position: Int) {

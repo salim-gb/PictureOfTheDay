@@ -2,13 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/spaceScreen"
-    android:id="@+id/space">
+    android:id="@+id/space"
+    app:startDestination="@id/spaceScreen">
 
     <fragment
         android:id="@+id/spaceScreen"
-        android:label="@string/space"
         android:name="com.example.pictureoftheday.ui.space.Space"
-        tools:layout="@layout/space_fragment"/>
+        android:label="@string/space"
+        tools:layout="@layout/space_fragment" />
 
 </navigation>

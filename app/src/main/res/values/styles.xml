@@ -53,12 +53,6 @@
         <item name="android:minHeight">@dimen/dimen_large_32</item>
     </style>
 
-    <!-- Activity fade in animation -->
-    <style name="WindowAnimationTransition">
-        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
-        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
-    </style>
-
     <!--ImageView in space CollapsingToolbar-->
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
@@ -93,9 +87,9 @@
     <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
     </style>
-
     <style name="ThemeOverlay.App.Toolbar" parent="">
         <item name="colorOnPrimary">@color/white</item>
+        <item name="android:background">@color/transparent</item>
     </style>
 
 </resources>

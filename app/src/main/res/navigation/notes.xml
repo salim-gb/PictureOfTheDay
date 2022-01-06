@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notes"
+    app:startDestination="@id/notesScreen">
+
+    <fragment
+        android:id="@+id/notesScreen"
+        android:name="com.example.pictureoftheday.ui.notes.Notes"
+        android:label="@string/home"
+        tools:layout="@layout/notes_fragment" />
+
+</navigation>

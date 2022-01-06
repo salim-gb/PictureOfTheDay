@@ -1,12 +1,16 @@
 package com.example.pictureoftheday.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class MarsPictureData(
     @field:SerializedName("photos")
     val photos: List<MarsPhoto>?,
-)
+) : Parcelable
 
+@Parcelize
 data class MarsPhoto(
     @field:SerializedName("id")
     val id: String?,
@@ -20,8 +24,9 @@ data class MarsPhoto(
     val date: String?,
     @field:SerializedName("rover")
     val rover: RoverData?
-)
+) : Parcelable
 
+@Parcelize
 data class CameraData(
     @field:SerializedName("id")
     val id: String?,
@@ -31,8 +36,9 @@ data class CameraData(
     val roverId: String?,
     @field:SerializedName("full_name")
     val fullName: String?
-)
+) : Parcelable
 
+@Parcelize
 data class RoverData(
     @field:SerializedName("id")
     val id: String?,
@@ -44,4 +50,4 @@ data class RoverData(
     val launchDate: String?,
     @field:SerializedName("status")
     val status: String?
-)
+) : Parcelable
