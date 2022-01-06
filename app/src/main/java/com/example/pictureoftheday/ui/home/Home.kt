@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -255,26 +254,6 @@ class Home : Fragment(R.layout.home_fragment) {
 
     private fun onDateChange(date: Long) {
         viewModel.onDateChange(date)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        animateToChip = when (binding.chipGroup.checkedChipId) {
-            R.id.chipToday -> binding.chipToday
-            R.id.chipYesterday -> binding.chipYesterday
-            R.id.chipBeforeYesterday -> binding.chipBeforeYesterday
-            else -> null
-        }
-
-        binding.nasaLogo.doOnLayout {
-            animateToChip?.let { animateChip(it) }
-
-            repeat(50) {
-                starShow()
-            }
-            moonShow()
-        }
     }
 
     override fun onDestroyView() {

@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import coil.load
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.FullscreenImageFragmentBinding
+import java.util.concurrent.TimeUnit
 
 class FullscreenImageFragment : Fragment(R.layout.fullscreen_image_fragment) {
 
@@ -20,19 +21,17 @@ class FullscreenImageFragment : Fragment(R.layout.fullscreen_image_fragment) {
 
     private val args: FullscreenImageFragmentArgs by navArgs()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FullscreenImageFragmentBinding.bind(view)
+
+        postponeEnterTransition(50, TimeUnit.MILLISECONDS)
 
         val animation =
             TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
 
         sharedElementEnterTransition = animation
         sharedElementReturnTransition = animation
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        _binding = FullscreenImageFragmentBinding.bind(view)
 
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)

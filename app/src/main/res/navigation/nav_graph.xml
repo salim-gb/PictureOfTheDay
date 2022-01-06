@@ -43,5 +43,6 @@
     <include app:graph="@navigation/home" />
     <include app:graph="@navigation/space" />
     <include app:graph="@navigation/settings" />
+    <include app:graph="@navigation/notes" />
 
 </navigation>
