@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pictureoftheday.model.NoteSmall
 import com.example.pictureoftheday.repository.DataSource
 import com.example.pictureoftheday.util.DateHelper
-import com.example.pictureoftheday.util.ListItem
+import com.example.pictureoftheday.model.ListItem
 import java.util.*
 
 class NotesViewModel(private val dataSource: DataSource) : ViewModel() {

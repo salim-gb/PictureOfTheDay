@@ -3,82 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/favorite_icon_color_selector.xml" value="0.3635" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_arrow_drop_down_circle_24.xml" value="0.22" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.1" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_keyboard_arrow_up_24.xml" value="0.3635" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.1225" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/wcircle.xml" value="0.162" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/activity_main.xml" value="0.2015625" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/earth_fragment.xml" value="0.31431159420289856" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/fullscreen_image_fragment.xml" value="0.12" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/header_item.xml" value="0.31851851851851853" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/home_fragment.xml" value="0.5" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_date_divider.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_note.xml" value="0.32314814814814813" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_note_big.xml" value="0.3625" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_note_small.xml" value="0.3625" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_picture_moon.xml" value="0.25" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_view_mars.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/mars_fragment.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/meteorites_fragment.xml" value="0.2962962962962963" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/moon_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/notes_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/settings_fragment.xml" value="0.184375" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/space_fragment.xml" value="0.33" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/menu/space_tool_bar_menu.xml" value="0.1" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/xml/scene_meteo.xml" value="0.2962962962962963" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.36574074074074076" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/chip_stroke_tint.xml" value="0.1" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/favorite_icon_color_selector.xml" value="0.3574074074074074" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.10462962962962963" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.37447916666666664" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.37447916666666664" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.37447916666666664" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.33611111111111114" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.37447916666666664" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_launcher_background.xml" value="0.36574074074074076" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.37447916666666664" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_nasa_logo.xml" value="0.37864583333333335" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_nasa_logo_light.xml" value="0.37864583333333335" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_notification_icon_wikipedia_logo.xml" value="0.37447916666666664" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/activity_main.xml" value="0.17426545086119555" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/earth_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/favorite_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/flower_item.xml" value="0.17603850050658562" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/home_fragment.xml" value="0.33" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/item_view_mars.xml" value="0.16" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/main_fragment.xml" value="0.22146739130434784" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/mars_fragment.xml" value="0.223731884057971" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/meteorites_fragment.xml" value="0.3625" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/moon_fragment.xml" value="0.3625" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/settings_fragment.xml" value="0.17603850050658562" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/space_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/weather_fragment.xml" value="0.3625" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.34814814814814815" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/menu/home_fragment_app_bar_menu.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/menu/mars_tool_bar_menu.xml" value="0.3625" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/menu/space_tool_bar_menu.xml" value="0.128125" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11979166666666667" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/mipmap-anydpi-v26/ic_launcher_nasa.xml" value="0.36574074074074076" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/mipmap-anydpi-v26/ic_launcher_nasa_round.xml" value="0.36574074074074076" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.36574074074074076" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/xml/preferences.xml" value="0.33" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/home_fragment.xml" value="0.3129528985507246" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/mars_fragment.xml" value="0.3625" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.15" />
-      </ProjectState>
-    </option>
   </component>
 </project>

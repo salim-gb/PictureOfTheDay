@@ -100,7 +100,7 @@
                 style="@style/Widget.App.Button.OutlinedButton.IconOnly"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent"
+                android:background="@color/white"
                 app:icon="@drawable/ic_baseline_calendar_month_24"
                 app:layout_constraintBottom_toBottomOf="@id/chipGroup"
                 app:layout_constraintEnd_toStartOf="@id/guidLineEnd"
@@ -118,18 +118,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/chipGroup"
                 tools:srcCompat="@tools:sample/avatars" />
-
-            <View
-                android:id="@+id/blurView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@color/black_transparent_64"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/customImageView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/customImageView"
-                tools:visibility="visible" />
 
             <ProgressBar
                 android:id="@+id/loadingProgressBar"

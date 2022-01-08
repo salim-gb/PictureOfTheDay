@@ -24,7 +24,7 @@ data class MarsPhoto(
     val date: String?,
     @field:SerializedName("rover")
     val rover: RoverData?
-) : Parcelable
+) : Parcelable, ListItem
 
 @Parcelize
 data class CameraData(

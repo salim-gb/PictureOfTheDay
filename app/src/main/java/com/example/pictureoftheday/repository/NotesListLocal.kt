@@ -2,7 +2,7 @@ package com.example.pictureoftheday.repository
 
 import com.example.pictureoftheday.model.NoteBig
 import com.example.pictureoftheday.model.NoteSmall
-import com.example.pictureoftheday.util.ListItem
+import com.example.pictureoftheday.model.ListItem
 
 fun dataList(): List<ListItem> {
     return listOf(

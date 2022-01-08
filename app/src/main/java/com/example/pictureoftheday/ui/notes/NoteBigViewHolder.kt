@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pictureoftheday.databinding.ItemNoteBigBinding
 import com.example.pictureoftheday.model.NoteBig
-import com.example.pictureoftheday.util.ListItem
+import com.example.pictureoftheday.model.ListItem
 
 class NoteBigViewHolder private constructor(
     val binding: ItemNoteBigBinding,

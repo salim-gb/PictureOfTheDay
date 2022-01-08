@@ -1,7 +1,5 @@
 package com.example.pictureoftheday.model
 
-import com.example.pictureoftheday.util.ListItem
-
 data class NoteBig(
     val id: Int,
     val title: String,

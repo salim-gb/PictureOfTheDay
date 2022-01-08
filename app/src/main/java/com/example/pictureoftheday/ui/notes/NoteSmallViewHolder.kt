@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pictureoftheday.databinding.ItemNoteSmallBinding
 import com.example.pictureoftheday.model.NoteSmall
-import com.example.pictureoftheday.util.ListItem
+import com.example.pictureoftheday.model.ListItem
 
 class NoteSmallViewHolder private constructor(
     val binding: ItemNoteSmallBinding,

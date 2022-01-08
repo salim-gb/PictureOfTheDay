@@ -2,7 +2,7 @@ package com.example.pictureoftheday.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.pictureoftheday.util.ListItem
+import com.example.pictureoftheday.model.ListItem
 
 class DataSource {
     private val initialListItem = dataList()

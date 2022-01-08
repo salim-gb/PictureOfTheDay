@@ -1,25 +1,25 @@
-package com.example.pictureoftheday.ui.notes
+package com.example.pictureoftheday.ui.space.mars
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pictureoftheday.model.NoteBig
+import com.example.pictureoftheday.model.MarsPhoto
 import com.example.pictureoftheday.util.Delegate
 import com.example.pictureoftheday.model.ListItem
 
-class NoteBigDelegate : Delegate {
+class MarsPhotoDelegate : Delegate {
 
-    override fun forItem(listItem: ListItem): Boolean = listItem is NoteBig
+    override fun forItem(listItem: ListItem): Boolean = listItem is MarsPhoto
 
     override fun getViewHolder(
         parent: ViewGroup,
         onClick: (ListItem) -> Unit
     ): RecyclerView.ViewHolder =
-        NoteBigViewHolder.from(parent, onClick)
+        MarsViewHolder.from(parent, onClick)
 
     override fun bindViewHolder(viewHolder: RecyclerView.ViewHolder, item: ListItem) {
-        (viewHolder as NoteBigViewHolder).let { noteViewHolder ->
-            val note = item as NoteBig
-            noteViewHolder.bind(note)
+        (viewHolder as MarsViewHolder).let { marsViewHolder ->
+            val marsPhoto = item as MarsPhoto
+            marsViewHolder.bind(marsPhoto)
         }
     }
 }
