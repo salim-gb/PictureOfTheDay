@@ -11,7 +11,7 @@ import com.example.pictureoftheday.model.ListItem
 
 class MoonViewHolder private constructor(
     val binding: ItemPictureMoonBinding,
-    onClick: (ListItem) -> Unit
+    onClick: (ListItem, Boolean?) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private var currentPicture: MoonPicture? = null
@@ -19,7 +19,7 @@ class MoonViewHolder private constructor(
     init {
         itemView.setOnClickListener {
             currentPicture?.let {
-                onClick(it)
+                onClick(it, null)
             }
         }
     }
@@ -34,7 +34,7 @@ class MoonViewHolder private constructor(
     }
 
     companion object {
-        fun from(parent: ViewGroup, onClick: (ListItem) -> Unit): MoonViewHolder {
+        fun from(parent: ViewGroup, onClick: (ListItem, Boolean?) -> Unit): MoonViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemPictureMoonBinding.inflate(layoutInflater, parent, false)
             return MoonViewHolder(binding, onClick)

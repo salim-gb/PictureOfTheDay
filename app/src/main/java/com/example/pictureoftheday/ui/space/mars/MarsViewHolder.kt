@@ -6,13 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.ItemViewMarsBinding
-import com.example.pictureoftheday.model.MarsPhoto
 import com.example.pictureoftheday.model.ListItem
-import timber.log.Timber
+import com.example.pictureoftheday.model.MarsPhoto
 
 class MarsViewHolder private constructor(
     val binding: ItemViewMarsBinding,
-    onClick: (ListItem) -> Unit
+    onClick: (ListItem, Boolean?) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private var currentMarsPicture: MarsPhoto? = null
@@ -20,7 +19,7 @@ class MarsViewHolder private constructor(
     init {
         itemView.setOnClickListener {
             currentMarsPicture?.let {
-                onClick(it)
+                onClick(it, null)
             }
         }
     }
@@ -30,7 +29,6 @@ class MarsViewHolder private constructor(
         currentMarsPicture = marsPhoto
 
         with(binding) {
-            Timber.i("sol: $sol")
             sol.text = itemView.context.getString(R.string.sol, marsPhoto.sol)
             cameraName.text =
                 itemView.context.getString(R.string.camera_name, marsPhoto.camera?.name)
@@ -45,7 +43,7 @@ class MarsViewHolder private constructor(
     }
 
     companion object {
-        fun from(parent: ViewGroup, onClick: (ListItem) -> Unit): MarsViewHolder {
+        fun from(parent: ViewGroup, onClick: (ListItem, Boolean?) -> Unit): MarsViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemViewMarsBinding.inflate(layoutInflater, parent, false)
             return MarsViewHolder(binding, onClick)

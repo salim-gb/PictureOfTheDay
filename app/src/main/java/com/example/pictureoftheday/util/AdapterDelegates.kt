@@ -7,7 +7,7 @@ import com.example.pictureoftheday.model.ListItem
 class AdapterDelegates(
     private val delegates: List<Delegate>,
     var currentList: List<ListItem> = emptyList(),
-    private val onClick: (ListItem) -> Unit,
+    private val onClick: (ListItem, Boolean?) -> Unit,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int =

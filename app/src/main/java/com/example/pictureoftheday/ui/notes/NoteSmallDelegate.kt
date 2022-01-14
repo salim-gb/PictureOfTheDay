@@ -2,9 +2,9 @@ package com.example.pictureoftheday.ui.notes
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pictureoftheday.model.ListItem
 import com.example.pictureoftheday.model.NoteSmall
 import com.example.pictureoftheday.util.Delegate
-import com.example.pictureoftheday.model.ListItem
 
 class NoteSmallDelegate : Delegate {
 
@@ -12,7 +12,7 @@ class NoteSmallDelegate : Delegate {
 
     override fun getViewHolder(
         parent: ViewGroup,
-        onClick: (ListItem) -> Unit
+        onClick: (ListItem, Boolean?) -> Unit,
     ): RecyclerView.ViewHolder =
         NoteSmallViewHolder.from(parent, onClick)
 
@@ -23,3 +23,4 @@ class NoteSmallDelegate : Delegate {
         }
     }
 }
+

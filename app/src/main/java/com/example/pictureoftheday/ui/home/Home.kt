@@ -142,8 +142,8 @@ class Home : Fragment(R.layout.home_fragment) {
         when (appState) {
             is AppState.Error -> {
                 binding.loadingProgressBar.visibility = View.GONE
-                Snackbar.make(requireView(), "${appState.error.message}", Snackbar.LENGTH_SHORT)
-                    .show()
+//                Snackbar.make(requireView(), "${appState.error.message}", Snackbar.LENGTH_SHORT)
+//                    .show()
             }
             AppState.Loading -> {
                 binding.loadingProgressBar.visibility = View.VISIBLE

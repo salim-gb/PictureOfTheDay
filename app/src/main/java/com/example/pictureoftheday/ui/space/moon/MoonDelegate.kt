@@ -12,7 +12,7 @@ class MoonDelegate : Delegate {
 
     override fun getViewHolder(
         parent: ViewGroup,
-        onClick: (ListItem) -> Unit
+        onClick: (ListItem, Boolean?) -> Unit
     ): RecyclerView.ViewHolder = MoonViewHolder.from(parent, onClick)
 
     override fun bindViewHolder(viewHolder: RecyclerView.ViewHolder, item: ListItem) {

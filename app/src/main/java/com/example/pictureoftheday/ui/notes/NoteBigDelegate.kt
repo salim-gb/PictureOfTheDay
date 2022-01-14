@@ -12,7 +12,7 @@ class NoteBigDelegate : Delegate {
 
     override fun getViewHolder(
         parent: ViewGroup,
-        onClick: (ListItem) -> Unit
+        onClick: (ListItem, Boolean?) -> Unit
     ): RecyclerView.ViewHolder =
         NoteBigViewHolder.from(parent, onClick)
 

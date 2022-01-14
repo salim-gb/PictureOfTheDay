@@ -2,10 +2,10 @@ package com.example.pictureoftheday.ui.notes
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.pictureoftheday.model.ListItem
 import com.example.pictureoftheday.model.NoteSmall
 import com.example.pictureoftheday.repository.DataSource
 import com.example.pictureoftheday.util.DateHelper
-import com.example.pictureoftheday.model.ListItem
 import java.util.*
 
 class NotesViewModel(private val dataSource: DataSource) : ViewModel() {
@@ -30,6 +30,10 @@ class NotesViewModel(private val dataSource: DataSource) : ViewModel() {
 
     fun removeNote(listItem: ListItem) {
         dataSource.removeItem(listItem)
+    }
+
+    fun onCheckBoxFavoriteClick(listItem: ListItem) {
+        dataSource.checkBoxFavoriteClick(listItem)
     }
 }
 

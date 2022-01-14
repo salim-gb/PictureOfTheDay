@@ -41,11 +41,11 @@ class Mars : Fragment(R.layout.mars_fragment) {
         }
 
     private val adapter = AdapterDelegates(
-        delegates = listOf(MarsPhotoDelegate())
-    ) {
+        delegates = listOf(MarsPhotoDelegate)
+    ) { listItem, _ ->
         FullscreenImageFragmentDirections
         val action =
-            FullscreenImageFragmentDirections.actionGlobalFullscreenImage(marsData = it as MarsPhoto)
+            FullscreenImageFragmentDirections.actionGlobalFullscreenImage(marsData = listItem as MarsPhoto)
         findNavController().navigate(
             action,
             navOptions {

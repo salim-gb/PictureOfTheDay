@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.NotesFragmentBinding
+import com.example.pictureoftheday.model.ListItem
 import com.example.pictureoftheday.model.NoteBig
 import com.example.pictureoftheday.model.NoteSmall
 import com.example.pictureoftheday.util.AdapterDelegates
 import com.example.pictureoftheday.util.CommonCallbackImpl
 import com.example.pictureoftheday.util.HeaderAdapter
-import com.example.pictureoftheday.model.ListItem
 import java.util.*
 
 class Notes : Fragment(R.layout.notes_fragment) {
@@ -43,8 +43,8 @@ class Notes : Fragment(R.layout.notes_fragment) {
 
     private val adapter = AdapterDelegates(
         delegates = listOf(NoteSmallDelegate(), NoteBigDelegate())
-    ) { listItem ->
-        adapterOnClick((listItem))
+    ) { listItem, isChecked ->
+        adapterOnClick(listItem, isChecked)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -104,12 +104,18 @@ class Notes : Fragment(R.layout.notes_fragment) {
         }
     }
 
-    private fun adapterOnClick(listItem: ListItem) {
-        when (listItem) {
-            is NoteBig -> Toast.makeText(context, "Title: ${listItem.title}", Toast.LENGTH_LONG)
-                .show()
-            is NoteSmall -> Toast.makeText(context, "Title: ${listItem.title}", Toast.LENGTH_LONG)
-                .show()
+    private fun adapterOnClick(listItem: ListItem, isChecked: Boolean?) {
+        if (isChecked != null) {
+            viewModel.onCheckBoxFavoriteClick(listItem)
+        } else {
+            when (listItem) {
+                is NoteBig -> {
+                    Toast.makeText(context, "Title: ${listItem.title}", Toast.LENGTH_LONG).show()
+                }
+                is NoteSmall -> {
+                    Toast.makeText(context, "Title: ${listItem.title}", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 

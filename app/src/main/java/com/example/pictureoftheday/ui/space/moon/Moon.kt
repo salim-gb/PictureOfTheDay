@@ -36,8 +36,8 @@ class Moon : Fragment(R.layout.moon_fragment) {
             diffResult.dispatchUpdatesTo(adapter)
         }
 
-    private val adapter = AdapterDelegates(listOf(MoonDelegate()), items) {
-        onAdapterClick(it)
+    private val adapter = AdapterDelegates(listOf(MoonDelegate()), items) { listItem, _ ->
+        onAdapterClick(listItem as MoonPicture)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,9 +54,9 @@ class Moon : Fragment(R.layout.moon_fragment) {
         }
     }
 
-    private fun onAdapterClick(listItem: ListItem) {
+    private fun onAdapterClick(moonPicture: MoonPicture) {
         val action =
-            FullscreenImageFragmentDirections.actionGlobalFullscreenImage(moonData = listItem as MoonPicture)
+            FullscreenImageFragmentDirections.actionGlobalFullscreenImage(moonData = moonPicture)
         findNavController().navigate(
             action,
             navOptions {

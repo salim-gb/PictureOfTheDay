@@ -5,5 +5,6 @@ data class NoteBig(
     val title: String,
     val descriptionOne: String,
     val descriptionTwo: String,
-    val date: String
+    val date: String,
+    var isFavorite: Boolean = false
 ) : ListItem
