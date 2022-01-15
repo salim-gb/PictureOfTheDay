@@ -1,13 +1,15 @@
 package com.example.pictureoftheday.repository
 
+import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.pictureoftheday.R
 import com.example.pictureoftheday.model.ListItem
 import com.example.pictureoftheday.model.NoteBig
 import com.example.pictureoftheday.model.NoteSmall
 
-class DataSource {
-    private val initialListItem = dataList()
+class DataSource(val resources: Resources) {
+    private val initialListItem = dataList(resources)
     private val listItemLiveData = MutableLiveData(initialListItem)
 
     fun addItem(listItem: ListItem) {
@@ -73,12 +75,20 @@ class DataSource {
         }
     }
 
+    fun getRandomImage(): Int {
+        return when ((0..1).random()) {
+            0 -> R.drawable.full_moon
+            1 -> R.drawable.space_astronaut
+            else -> R.drawable.space
+        }
+    }
+
     companion object {
         private var INSTANCE: DataSource? = null
 
-        fun getDataSource(): DataSource {
+        fun getDataSource(resources: Resources): DataSource {
             return synchronized(DataSource::class) {
-                val newInstance = INSTANCE ?: DataSource()
+                val newInstance = INSTANCE ?: DataSource(resources)
                 INSTANCE = newInstance
                 newInstance
             }

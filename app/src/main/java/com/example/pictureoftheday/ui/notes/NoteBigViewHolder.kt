@@ -3,6 +3,7 @@ package com.example.pictureoftheday.ui.notes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.ItemNoteBigBinding
 import com.example.pictureoftheday.model.ListItem
 import com.example.pictureoftheday.model.NoteBig
@@ -31,11 +32,18 @@ class NoteBigViewHolder private constructor(
 
     fun bind(note: NoteBig) {
         currentNote = note
-        binding.noteId.text = note.id.toString()
-        binding.noteTitle.text = note.title
-        binding.noteDescriptionOne.text = note.descriptionOne
-        binding.noteDescriptionTwo.text = note.descriptionTwo
-        binding.checkboxFavorite.isChecked = note.isFavorite
+        with(binding) {
+            noteId.text = note.id.toString()
+            if (note.image != null) {
+                image.setImageResource(note.image)
+            } else {
+                image.setImageResource(R.drawable.space)
+            }
+            noteTitle.text = note.title
+            noteDescriptionOne.text = note.descriptionOne
+            noteDescriptionTwo.text = note.descriptionTwo
+            checkboxFavorite.isChecked = note.isFavorite
+        }
     }
 
     companion object {

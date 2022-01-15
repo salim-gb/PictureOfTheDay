@@ -25,7 +25,7 @@ class Notes : Fragment(R.layout.notes_fragment) {
     private val binding get() = _binding!!
 
     private val viewModel by viewModels<NotesViewModel> {
-        NotesViewModelFactory()
+        NotesViewModelFactory(requireContext())
     }
 
     var items = emptyList<ListItem>()

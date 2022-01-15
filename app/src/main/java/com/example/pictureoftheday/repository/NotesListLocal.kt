@@ -1,16 +1,19 @@
 package com.example.pictureoftheday.repository
 
+import android.content.res.Resources
+import com.example.pictureoftheday.R
 import com.example.pictureoftheday.model.NoteBig
 import com.example.pictureoftheday.model.NoteSmall
 import com.example.pictureoftheday.model.ListItem
 
-fun dataList(): List<ListItem> {
+fun dataList(resources: Resources): List<ListItem> {
     return listOf(
         NoteSmall(1, "Note 1", "Remind Note 1", "12-01-2022"),
         NoteSmall(2, "Note 2", "Remind Note 2", "12-01-2022"),
         NoteSmall(3, "Note 3", "Remind Note 3", "12-01-2022"),
         NoteBig(
             66,
+            image = R.drawable.full_moon,
             "Note 500",
             "Remind Note Big 500",
             "Remind Note Big Description Two",
@@ -21,6 +24,7 @@ fun dataList(): List<ListItem> {
         NoteSmall(6, "Note 6", "Remind Note 6", "12-01-2022"),
         NoteBig(
             77,
+            image = R.drawable.space_astronaut,
             "Note 600",
             "Remind Note Big 600",
             "Remind Note Big Description Two",
@@ -32,6 +36,7 @@ fun dataList(): List<ListItem> {
         NoteSmall(10, "Note 10", "Remind Note 10", "12-01-2022"),
         NoteBig(
             99,
+            image = R.drawable.space,
             "Note 700",
             "Remind Note Big 700",
             "Remind Note Big Description Two",
