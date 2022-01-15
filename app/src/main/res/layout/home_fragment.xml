@@ -170,6 +170,7 @@
                 android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_small_8"
                 android:fontFamily="@font/roboto"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 app:layout_constraintEnd_toStartOf="@id/guidLineEnd"
@@ -181,7 +182,10 @@
                 android:id="@+id/copyRight"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_small_12"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textStyle="bold"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@id/guidLineEnd"
                 app:layout_constraintStart_toEndOf="@id/guidLineBegin"
                 app:layout_constraintTop_toBottomOf="@+id/description" />

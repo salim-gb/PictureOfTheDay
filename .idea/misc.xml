@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/favorite_icon_color_selector.xml" value="0.3435185185185185" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/fullscreen_image_fragment.xml" value="0.32065217391304346" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_copyright_18.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_copyright_24.xml" value="0.3435185185185185" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.3723076923076923" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/fullscreen_image_fragment.xml" value="0.15462962962962962" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/home_fragment.xml" value="0.3129528985507246" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_note_big.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_note_small.xml" value="0.3625" />

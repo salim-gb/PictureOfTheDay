@@ -1,6 +1,8 @@
 package com.example.pictureoftheday.ui.notes
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pictureoftheday.databinding.ItemNoteSmallBinding
@@ -20,6 +22,21 @@ class NoteSmallViewHolder private constructor(
             currentNote?.let { note ->
                 onClick(note, null)
             }
+        }
+        itemView.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_UP -> {
+                    binding.noteDragBtn.visibility = View.GONE
+                    v.performClick()
+                }
+                MotionEvent.ACTION_DOWN -> {
+                    binding.noteDragBtn.visibility = View.VISIBLE
+                }
+                MotionEvent.ACTION_CANCEL -> {
+                    binding.noteDragBtn.visibility = View.GONE
+                }
+            }
+            true
         }
 
         binding.checkboxFavorite.setOnClickListener {

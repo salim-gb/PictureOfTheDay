@@ -65,11 +65,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:button="@drawable/favorite_icon_color_selector"
-            android:buttonTint="?attr/colorOnSurface"
+            android:buttonTint="@color/white"
             android:minWidth="0dp"
             android:minHeight="0dp"
             app:layout_constraintEnd_toStartOf="@+id/noteGuideLineEnd"
-
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
@@ -96,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/dimen_small_8"/>
+            app:layout_constraintGuide_end="@dimen/dimen_small_8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

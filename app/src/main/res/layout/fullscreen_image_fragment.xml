@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fullscreen_image_fragment_scene">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         tools:text="@tools:sample/lorem/random" />
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/ic_baseline_arrow_drop_down_circle_24"
         app:tint="@color/white" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageViewArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

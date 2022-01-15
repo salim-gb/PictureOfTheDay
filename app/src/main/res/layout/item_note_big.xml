@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_small_8"
             android:button="@drawable/favorite_icon_color_selector"
-            android:buttonTint="?attr/colorOnSurface"
+            android:buttonTint="@color/white"
             android:minWidth="0dp"
             android:minHeight="0dp"
             app:layout_constraintEnd_toEndOf="parent"
