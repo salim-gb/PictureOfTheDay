@@ -3,6 +3,7 @@ package com.example.pictureoftheday.ui.home
 import android.animation.*
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,10 +15,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
+import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.databinding.HomeFragmentBinding
 import com.example.pictureoftheday.model.PictureOfTheDayResponseData
@@ -56,6 +59,13 @@ class Home : Fragment(R.layout.home_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = HomeFragmentBinding.bind(view)
+
+        binding.nasaLogo.doOnLayout {
+            repeat(50) {
+                starShow()
+            }
+            moonShow()
+        }
 
         viewModel.getData().observe(viewLifecycleOwner) {
             renderData(it)
@@ -147,6 +157,8 @@ class Home : Fragment(R.layout.home_fragment) {
         when (appState) {
             is AppState.Error -> {
                 binding.loadingProgressBar.visibility = View.GONE
+                showPageNoDataYet()
+
                 Snackbar.make(requireView(), "${appState.error.message}", Snackbar.LENGTH_SHORT)
                     .show()
             }
@@ -154,11 +166,30 @@ class Home : Fragment(R.layout.home_fragment) {
                 binding.loadingProgressBar.visibility = View.VISIBLE
             }
             is AppState.Success -> {
+                binding.chipHdRes.visibility = View.VISIBLE
                 binding.loadingProgressBar.visibility = View.GONE
+                binding.noPictureMessage.visibility = View.GONE
                 if (appState.data is PictureOfTheDayResponseData) {
                     showDetails(appState.data)
                 }
             }
+        }
+    }
+
+    private fun showPageNoDataYet() {
+        with(binding) {
+            customImageView.apply {
+                load(R.drawable.no_nasa_image)
+                isClickable = false
+            }
+
+            noPictureMessage.visibility = View.VISIBLE
+
+            title.text = ""
+            date.text = ""
+            description.text = ""
+            copyRight.text = ""
+            chipHdRes.visibility = View.GONE
         }
     }
 

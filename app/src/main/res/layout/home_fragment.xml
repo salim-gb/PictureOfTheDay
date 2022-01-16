@@ -119,6 +119,21 @@
                 app:layout_constraintTop_toBottomOf="@id/chipGroup"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/noPictureMessage"
+                android:paddingHorizontal="@dimen/dimen_small_12"
+                android:text="@string/no_picture_message"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/customImageView"
+                app:layout_constraintEnd_toEndOf="@id/guidLineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidLineBegin"
+                app:layout_constraintTop_toTopOf="@id/customImageView"
+                app:lineHeight="@dimen/dimen_large_32" />
+
             <ProgressBar
                 android:id="@+id/loadingProgressBar"
                 style="?android:attr/progressBarStyleLarge"
@@ -184,8 +199,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_small_12"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                android:textStyle="bold"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guidLineEnd"
                 app:layout_constraintStart_toEndOf="@id/guidLineBegin"
                 app:layout_constraintTop_toBottomOf="@+id/description" />

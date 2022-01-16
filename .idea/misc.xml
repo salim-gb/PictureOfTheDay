@@ -3,19 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/animated_drawable_nasa_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/animated_nasa_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/avd_anim.xml" value="0.225" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/favorite_icon_color_selector.xml" value="0.3435185185185185" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_copyright_18.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_copyright_24.xml" value="0.3435185185185185" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.3723076923076923" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/ic_nasa_logo.xml" value="0.15185185185185185" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/drawable/nasa_logo_anim.xml" value="0.13796296296296295" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/fullscreen_image_fragment.xml" value="0.15462962962962962" />
-        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/home_fragment.xml" value="0.3129528985507246" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/home_fragment.xml" value="0.33" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_note_big.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/item_note_small.xml" value="0.3625" />
         <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/layout/mars_fragment.xml" value="0.3625" />
+        <entry key="..\:/Users/Salim/AndroidStudioProjects/GeekBrains/PictureOfTheDay/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.378125" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
