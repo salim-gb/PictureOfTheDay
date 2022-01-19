@@ -4,27 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dimen_tiny_4"
-    android:backgroundTint="@color/yellow_700">
+    android:layout_margin="@dimen/dimen_tiny_4">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/dimen_small_8">
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/noteTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/noteTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_small_8"
             android:ellipsize="end"
             android:fontFamily="@font/roboto"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/noteDragBtn"
+            app:layout_constraintEnd_toStartOf="@id/barrier"
             app:layout_constraintStart_toEndOf="@id/noteGuideLineBegin"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image"
             tools:text="@tools:sample/full_names" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -36,8 +45,7 @@
             android:fontFamily="@font/roboto_light"
             android:maxLines="2"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@id/noteDragBtn"
+            app:layout_constraintEnd_toStartOf="@id/barrier"
             app:layout_constraintStart_toEndOf="@id/noteGuideLineBegin"
             app:layout_constraintTop_toBottomOf="@id/noteTitle"
             tools:text="@tools:sample/lorem/random" />
@@ -51,8 +59,7 @@
             android:fontFamily="@font/roboto_light"
             android:maxLines="2"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@id/noteDragBtn"
+            app:layout_constraintEnd_toStartOf="@id/barrier"
             app:layout_constraintStart_toEndOf="@id/noteGuideLineBegin"
             app:layout_constraintTop_toBottomOf="@id/noteDescriptionOne"
             tools:text="@tools:sample/lorem/random" />
@@ -62,23 +69,42 @@
             android:id="@+id/noteId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_8"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/noteGuideLineBegin"
             app:layout_constraintTop_toBottomOf="@id/noteDescriptionTwo"
             tools:text="@tools:sample/us_zipcodes" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/noteDragBtn"
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="noteDragBtn" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkboxFavorite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_small_8"
+            android:button="@drawable/favorite_icon_color_selector"
+            android:buttonTint="@color/white"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/noteDragBtn"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_baseline_drag_handle_24"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/noteGuideLineEnd"
-            app:layout_constraintStart_toEndOf="@id/noteDescriptionOne"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@id/checkboxFavorite"
+            app:layout_constraintStart_toStartOf="@id/checkboxFavorite"
+            app:layout_constraintTop_toBottomOf="@+id/checkboxFavorite" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/noteGuideLineBegin"
@@ -92,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.96" />
+            app:layout_constraintGuide_end="@dimen/dimen_small_8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

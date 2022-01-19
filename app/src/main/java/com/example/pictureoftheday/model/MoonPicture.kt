@@ -9,4 +9,4 @@ data class MoonPicture(
     val title: String?,
     val bBox: String?,
     val abstractDes: String?,
-) : Parcelable
+) : Parcelable, ListItem

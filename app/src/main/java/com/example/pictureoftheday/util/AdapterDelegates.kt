@@ -1,29 +1,14 @@
 package com.example.pictureoftheday.util
 
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pictureoftheday.model.ListItem
 
 class AdapterDelegates(
     private val delegates: List<Delegate>,
-    private val onClick: (ListItem) -> Unit
+    var currentList: List<ListItem> = emptyList(),
+    private val onClick: (ListItem, Boolean?) -> Unit,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    var currentList: List<ListItem> = emptyList()
-        set(value) {
-            val callback = CommonCallbackImpl(
-                oldItems = field,
-                newItems = value,
-                /* for another comparison
-                areItemsTheSameImpl = { },
-                areContentsTheSameImpl = { },
-                getChangePayloadImpl = { }
-                 */
-            )
-            field = value
-            val diffResult = DiffUtil.calculateDiff(callback)
-            diffResult.dispatchUpdatesTo(this)
-        }
 
     override fun getItemViewType(position: Int): Int =
         delegates.indexOfFirst { delegate -> delegate.forItem(currentList[position]) }

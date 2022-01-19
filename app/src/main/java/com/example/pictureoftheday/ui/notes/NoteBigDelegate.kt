@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pictureoftheday.model.NoteBig
 import com.example.pictureoftheday.util.Delegate
-import com.example.pictureoftheday.util.ListItem
+import com.example.pictureoftheday.model.ListItem
 
 class NoteBigDelegate : Delegate {
 
@@ -12,7 +12,7 @@ class NoteBigDelegate : Delegate {
 
     override fun getViewHolder(
         parent: ViewGroup,
-        onClick: (ListItem) -> Unit
+        onClick: (ListItem, Boolean?) -> Unit
     ): RecyclerView.ViewHolder =
         NoteBigViewHolder.from(parent, onClick)
 

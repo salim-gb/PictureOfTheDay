@@ -1,6 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.PictureOfTheDay.Main" parent="Theme.PictureOfTheDay.Base">
+        <item name="fontFamily">@font/roboto</item>
         <item name="collapsingToolbarLayoutStyle">@style/Widget.App.CollapsingToolbar</item>
         <item name="colorPrimary">@color/deep_purple_100a</item>
         <item name="colorPrimaryVariant">@color/black_900</item>
@@ -8,6 +9,5 @@
         <item name="colorSecondary">@color/deep_purple_200a</item>
         <item name="colorSurface">@color/gray_900</item>
         <item name="chipStyle">@style/Widget.App.Chip.Black</item>
-        <item name="android:windowBackground">@color/black</item>
     </style>
 </resources>

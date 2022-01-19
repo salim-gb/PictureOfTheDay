@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.konan.properties.Properties
-
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -64,4 +62,5 @@ dependencies {
     implementation(Libs.LIVE_DATA_KAPT)
     implementation(Libs.VIEW_PAGER)
     implementation(Libs.RECYCLER_VIEW)
+    implementation(Libs.SPLASH)
 }

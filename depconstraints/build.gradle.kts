@@ -15,6 +15,7 @@ val logger = "2.2.0"
 val lifeCycle = "2.4.0"
 val viewPager = "1.0.0"
 val recyclerView = "1.3.0-alpha01"
+val splashScreen = "1.0.0-beta01"
 
 dependencies {
     constraints {
@@ -36,5 +37,6 @@ dependencies {
         api("${Libs.LIVE_DATA_KAPT}:$lifeCycle")
         api("${Libs.VIEW_PAGER}:$viewPager")
         api("${Libs.RECYCLER_VIEW}:$recyclerView")
+        api("${Libs.SPLASH}:$splashScreen")
     }
 }

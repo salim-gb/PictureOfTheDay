@@ -21,7 +21,6 @@
     <string name="weather">Weather</string>
     <string name="meteorites">Meteorites</string>
     <string name="space">Space</string>
-    <string name="no_picture_message">There is no picture for this date. Please choose another date.</string>
     <string name="sol">Sol: %1$s</string>
     <string name="camera_name">Camera: %1$s</string>
     <string name="rover_name">Rover: %1$s</string>
@@ -38,4 +37,5 @@
     <string name="fullscreen_image">Fullscreen Image</string>
     <string name="notes">Notes</string>
     <string name="fab_notes">Fab Notes</string>
+    <string name="no_picture_message">For now, there is no image from Nasa, please try a little later or choose another date!</string>
 </resources>

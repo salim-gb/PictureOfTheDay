@@ -3,7 +3,7 @@ package com.example.pictureoftheday.util
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.pictureoftheday.ui.space.Meteorites
-import com.example.pictureoftheday.ui.space.Moon
+import com.example.pictureoftheday.ui.space.moon.Moon
 import com.example.pictureoftheday.ui.space.Weather
 import com.example.pictureoftheday.ui.space.Earth
 import com.example.pictureoftheday.ui.space.mars.Mars
